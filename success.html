@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | Payment Confirmed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #afafaf; font-family: 'Inter', sans-serif; }
+        .neon-text { color: #00FF41; text-shadow: 0 0 12px rgba(0, 255, 65, 0.4); }
+        .neon-border { border: 1px solid rgba(0, 255, 65, 0.1); }
+        .pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-6">
+
+    <div class="max-w-2xl w-full text-center">
+        <div class="mb-8 flex justify-center">
+            <div class="p-4 rounded-full bg-[#00FF41]/10 border border-[#00FF41]/20">
+                <svg class="w-16 h-16 text-[#00FF41]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <h1 class="text-4xl font-black text-white mb-4 uppercase tracking-tighter">
+            Audit <span class="neon-text">Confirmed.</span>
+        </h1>
+        
+        <p class="text-gray-400 mb-12 text-lg leading-relaxed">
+            Our engines are processing your forensic data. Your full <strong>Remediation Strategy PDF</strong> will be delivered to your inbox within <span class="text-white">60 minutes</span>.
+        </p>
+
+        <div class="neon-border bg-black/40 p-8 rounded-2xl mb-16 text-left font-mono text-[11px] space-y-3">
+            <div class="flex items-center gap-3">
+                <span class="text-[#00FF41]">[OK]</span> <span>PAYMENT VERIFIED</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-[#00FF41]">[OK]</span> <span>FORENSIC DATA SYNCHRONIZED</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-[#00FF41] pulse">[RUNNING]</span> <span>GENERATING OPTIMIZED REMEDIATION PDF</span>
+            </div>
+        </div>
+
+        <div class="border-t border-white/5 pt-12 text-left">
+            <h3 class="text-xs font-bold text-zinc-500 uppercase tracking-[0.3em] mb-8">Next-Gen Modules for your Hub:</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-[#00FF41]/30 transition-all group">
+                    <h4 class="text-white font-bold mb-1 group-hover:neon-text">Ghost Shield</h4>
+                    <p class="text-[10px] text-gray-500 mb-4">Active defense for AI Agents and Cloud Credentials.</p>
+                    <a href="#" class="text-[10px] text-[#00FF41] uppercase tracking-widest font-bold">View Specs →</a>
+                </div>
+
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-[#00FF41]/30 transition-all group">
+                    <h4 class="text-white font-bold mb-1 group-hover:neon-text">Sentinel-X Pro</h4>
+                    <p class="text-[10px] text-gray-500 mb-4">Continuous auditing with auto-remediation (Ghost-Mode).</p>
+                    <a href="#" class="text-[10px] text-[#00FF41] uppercase tracking-widest font-bold">Coming Soon →</a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-20">
+            <a href="index.html" class="text-[10px] text-zinc-600 hover:text-white transition uppercase tracking-widest">
+                Return to Ghost-Architect Hub
+            </a>
+        </footer>
+    </div>
+
+</body>
+</html>

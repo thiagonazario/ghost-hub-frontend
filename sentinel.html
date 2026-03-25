@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | Sentinel-X Module</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #afafaf; font-family: 'Inter', sans-serif; }
+        .neon-text { color: #00FF41; text-shadow: 0 0 12px rgba(0, 255, 65, 0.4); }
+        .neon-border { border: 1px solid rgba(0, 255, 65, 0.1); }
+        .step-number { background: #111; border: 1px solid #333; }
+        code { color: #00FF41; background: rgba(0, 0, 0, 0.4); padding: 2px 6px; border-radius: 4px; }
+        .faq-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; }
+        .faq-card:hover { border-color: rgba(0, 255, 65, 0.2); background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <nav class="p-8 border-b border-white/5 flex justify-between items-center">
+        <a href="index.html" class="font-black text-xl text-white uppercase tracking-tighter">
+            GHOST<span class="neon-text">ARCHITECT</span> <span class="text-gray-600">/ SENTINEL-X</span>
+        </a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-20 w-full">
+        <div class="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-4xl font-black text-white mb-6 uppercase tracking-tighter">
+                    Ready to scan your <br><span class="neon-text">Infrastructure?</span>
+                </h1>
+                <p class="text-gray-400 leading-relaxed mb-8 text-sm">
+                    Sentinel-X is a non-invasive forensic tool. It runs in a local container to identify "zombie" resources—assets draining your budget every hour.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">01</span>
+                        <p class="text-sm">Copy the <strong>Docker Launch Command</strong>.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">02</span>
+                        <p class="text-sm">Run it on your local terminal or Cloud Shell.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">03</span>
+                        <p class="text-sm">Enter your email below to <strong>Sync Results</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest text-center">Launch via Docker</h4>
+                
+                <div class="bg-black p-4 rounded-lg mb-6 border border-white/10 font-mono text-[11px] text-green-400">
+                    <pre class="whitespace-pre-wrap">docker run -it --rm \
+  -e AWS_ACCESS_KEY_ID=*** \
+  -e AWS_SECRET_ACCESS_KEY=*** \
+  ghostarchitect/sentinel-x</pre>
+                </div>
+
+                <p class="text-[9px] text-gray-600 mb-6 font-mono uppercase text-center">
+                    Requires Docker Runtime // Non-Invasive // Read-Only Access
+                </p>
+                
+                <button onclick="navigator.clipboard.writeText('docker run -it --rm -e AWS_ACCESS_KEY_ID=*** -e AWS_SECRET_ACCESS_KEY=*** ghostarchitect/sentinel-x')" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-gray-200 transition uppercase text-[10px] tracking-widest">
+                    Copy Launch Command
+                </button>
+            </div>
+        </div>
+
+        <div class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group">
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#00FF41]/5 rounded-full blur-3xl group-hover:bg-[#00FF41]/10 transition-all"></div>
+            
+            <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sync Audit Results</h3>
+            <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Enter the email used in the scan to unlock your forensic report</p>
+            
+            <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
+                <input type="email" id="sync-email" placeholder="it-director@company.com" class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-[#00FF41] transition-all font-mono">
+                <button onclick="triggerStripe()" class="bg-[#00FF41] text-black font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-[#00FF41]/20">
+                    Unlock Full Remediation Strategy ($97)
+                </button>
+            </div>
+        </div>
+
+        <section class="mt-32 border-t border-white/5 pt-20">
+            <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-12 flex items-center gap-3">
+                <span class="w-2 h-2 bg-[#00FF41] rounded-full"></span> Security & FAQ
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Is my data safe?</h4>
+                    <p class="text-gray-500 leading-relaxed">Sentinel-X runs locally in your container. We only receive metadata about findings (waste amount and resource types) to generate your report. Your credentials never leave your machine.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What access is required?</h4>
+                    <p class="text-gray-500 leading-relaxed">The tool only requires <code>ReadOnlyAccess</code>. It cannot perform write operations, delete resources, or modify your infrastructure in any way.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What happens after payment?</h4>
+                    <p class="text-gray-500 leading-relaxed">You will be redirected to a secure dashboard to download your PDF Forensic Report and a custom CLI script to automate the cleanup of all discovered waste.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Can I run this in Production?</h4>
+                    <p class="text-gray-500 leading-relaxed">Yes. Sentinel-X is built to be lightweight and non-intrusive. It uses official AWS APIs with zero impact on the performance or stability of your production environment.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="p-12 text-center border-t border-white/5 mt-auto">
+        <p class="text-[10px] text-gray-600 font-mono uppercase tracking-[0.2em]">Ghost Architect // Hardened by Design // 2026</p>
+    </footer>
+
+    <script>
+        function triggerStripe() {
+            const email = document.getElementById('sync-email').value;
+            if(email.includes('@')) {
+                // Link do Stripe Checkout
+                const STRIPE_LINK = "https://buy.stripe.com/SEU_LINK_AQUI"; 
+                window.location.href = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email);
+            } else {
+                alert("Please enter a valid business email to sync your data.");
+            }
+        }
+    </script>
+</body>
+</html>
