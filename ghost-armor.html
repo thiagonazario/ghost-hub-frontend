@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | Ghost Armor Module</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #afafaf; font-family: 'Inter', sans-serif; }
+        .neon-text { color: #00FF41; text-shadow: 0 0 12px rgba(0, 255, 65, 0.4); }
+        .neon-border { border: 1px solid rgba(0, 255, 65, 0.1); }
+        .step-number { background: #111; border: 1px solid #333; }
+        code { color: #00FF41; background: rgba(0, 0, 0, 0.4); padding: 2px 6px; border-radius: 4px; }
+        .faq-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; }
+        .faq-card:hover { border-color: rgba(0, 255, 65, 0.2); background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <nav class="p-8 border-b border-white/5 flex justify-between items-center">
+        <a href="index.html" class="font-black text-xl text-white uppercase tracking-tighter">
+            GHOST<span class="neon-text">ARCHITECT</span> <span class="text-gray-600">/ GHOST-ARMOR</span>
+        </a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-20 w-full">
+        <div class="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-4xl font-black text-white mb-6 uppercase tracking-tighter leading-none">
+                    Shield your <br><span class="neon-text">Network Perimeter</span>
+                </h1>
+                <p class="text-gray-400 leading-relaxed mb-8 text-sm">
+                    Ghost Armor analyzes your Security Groups and Network ACLs using a Bayesian Risk Model. It identifies exposed ports and unencrypted traffic flows before they become an entry point.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">01</span>
+                        <p class="text-sm">Map your <strong>Exposed Surface</strong>.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">02</span>
+                        <p class="text-sm">Detect port leaks and insecure protocols.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">03</span>
+                        <p class="text-sm">Apply <strong>Hardened Shields</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest text-center">Network Shield Command</h4>
+                
+                <div class="bg-black p-4 rounded-lg mb-6 border border-white/10 font-mono text-[11px] text-green-400">
+                    <pre class="whitespace-pre-wrap">docker run -it --rm \
+  -e AWS_ACCESS_KEY_ID=*** \
+  -e AWS_SECRET_ACCESS_KEY=*** \
+  ghostarchitect/ghost-armor</pre>
+                </div>
+
+                <p class="text-[9px] text-gray-600 mb-6 font-mono uppercase text-center">
+                    Port Scan // Bayesian Impact // Perimeter Mapping
+                </p>
+                
+                <button onclick="navigator.clipboard.writeText('docker run -it --rm -e AWS_ACCESS_KEY_ID=*** -e AWS_SECRET_ACCESS_KEY=*** ghostarchitect/ghost-armor')" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-gray-200 transition uppercase text-[10px] tracking-widest">
+                    Copy Shield Command
+                </button>
+            </div>
+        </div>
+
+        <div class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group">
+            <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sync Network Audit</h3>
+            <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Unlock your Bayesian Risk Score and Hardening Script</p>
+            
+            <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
+                <input type="email" id="sync-email" placeholder="network-admin@company.com" class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-[#00FF41] transition-all font-mono">
+                <button onclick="triggerStripe()" class="bg-[#00FF41] text-black font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-[#00FF41]/20">
+                    Get Network Dossier ($197)
+                </button>
+            </div>
+        </div>
+
+        <section class="mt-32 border-t border-white/5 pt-20">
+            <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-12 flex items-center gap-3">
+                <span class="w-2 h-2 bg-[#00FF41] rounded-full"></span> Security & FAQ
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What is a Bayesian Risk Model?</h4>
+                    <p class="text-gray-500 leading-relaxed">Unlike static scanners, Ghost Armor uses probability models to calculate the likelihood of a lateral movement after a breach, prioritizing vulnerabilities that actually lead to critical data.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Does it perform active Port Scanning?</h4>
+                    <p class="text-gray-500 leading-relaxed">Ghost Armor analyzes Security Groups and VPC Flow Logs metadata. It maps open paths without sending a single packet to your instances, ensuring zero impact on your production performance.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Can it detect "Shadow" resources?</h4>
+                    <p class="text-gray-500 leading-relaxed">Yes. By cross-referencing Route53 records with Load Balancer configs, we identify "Ghost Gateways" and abandoned endpoints that are still publicly accessible but no longer monitored.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What is the "Hardening Script"?</h4>
+                    <p class="text-gray-100 leading-relaxed">The Dossier ($197) includes a Terraform/CloudFormation snippet to instantly patch Security Group leaks and apply restrictive Network ACLs without breaking your application flow.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="p-12 text-center border-t border-white/5 mt-auto">
+        <p class="text-[10px] text-gray-600 font-mono uppercase tracking-[0.2em]">Ghost Architect // Hardened by Design // 2026</p>
+    </footer>
+
+    <script>
+        function triggerStripe() {
+            const email = document.getElementById('sync-email').value;
+            if(email.includes('@')) {
+                const STRIPE_LINK = "https://buy.stripe.com/SEU_LINK_GHOST_ARMOR"; 
+                window.location.href = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email);
+            } else {
+                alert("Please enter a valid business email to sync your data.");
+            }
+        }
+    </script>
+</body>
+</html>

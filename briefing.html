@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | Secure Briefing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        body { background-color: #050505; color: #afafaf; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .neon-text { color: #00FF41; text-shadow: 0 0 12px rgba(0, 255, 65, 0.4); }
+        .grid-bg { background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 30px 30px; }
+        
+        input, textarea, select {
+            background: #0a0a0a !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            color: #ffffff !important;
+            outline: none !important;
+            appearance: none; /* Remove estilo padrão do navegador */
+        }
+
+        /* Correção específica para a lista de opções (boxlist) */
+        select option {
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #00FF41 !important;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.05);
+        }
+
+        /* Custom arrow para o select, já que removemos a padrão */
+        .select-wrapper { position: relative; }
+        .select-wrapper::after {
+            content: '▼';
+            font-size: 10px;
+            color: #00FF41;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="grid-bg min-h-screen flex flex-col">
+
+    <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto w-full border-b border-white/5">
+        <a href="index.html" class="font-black text-2xl tracking-tighter text-white uppercase">GHOST<span class="neon-text">ARCHITECT</span></a>
+        <div class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-500">
+            Secure Briefing Protocol // v1.0
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center px-6 py-20">
+        <div class="max-w-2xl w-full">
+            <div class="mb-12">
+                <h1 class="text-5xl font-black text-white mb-4 tracking-tighter uppercase">Initiate <span class="neon-text italic">Briefing.</span></h1>
+                <p class="text-gray-400 leading-relaxed font-medium italic text-sm">
+                    All communications are strictly asynchronous. No meetings. No noise. 
+                    Fill the parameters below to request a forensic intervention.
+                </p>
+            </div>
+
+            <form class="space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest font-black text-gray-600">Corporate Email</label>
+                        <input type="email" placeholder="identity@company.com" class="w-full p-4 rounded-sm font-mono text-sm" required>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest font-black text-gray-600">Intervention Domain</label>
+                        <div class="select-wrapper">
+                            <select class="w-full p-4 rounded-sm font-mono text-sm cursor-pointer" required>
+                                <option value="" disabled selected>Select Domain...</option>
+                                <option>Domain 01: Cloud Governance</option>
+                                <option>Domain 02: AI Intelligence</option>
+                                <option>Boutique Architecture Redesign</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-[10px] uppercase tracking-widest font-black text-gray-600">Infrastructure Scope (AWS/Azure/GCP/Other)</label>
+                    <input type="text" placeholder="Specify targets..." class="w-full p-4 rounded-sm font-mono text-sm">
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-[10px] uppercase tracking-widest font-black text-gray-600">The Problem (Briefing)</label>
+                    <textarea rows="5" placeholder="Describe the leaks, ghost costs or architectural drifts..." class="w-full p-4 rounded-sm font-mono text-sm resize-none" required></textarea>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit" class="w-full bg-white text-black font-black py-5 rounded-full hover:bg-[#00FF41] transition-all duration-300 uppercase text-[12px] tracking-[0.3em] shadow-2xl">
+                        Send Briefing to Vault
+                    </button>
+                    <p class="text-center text-[9px] text-gray-700 mt-6 font-mono uppercase tracking-widest">
+                        Response via encrypted dossier within 24h-48h.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="p-10 text-center">
+        <p class="text-[9px] text-gray-800 font-mono font-bold tracking-[0.4em] uppercase">
+            Hardened by Design // Asynchronous Only
+        </p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Service Agreement | Ghost Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #777; font-family: 'Inter', sans-serif; line-height: 1.8; }
+        .neon-text { color: #00FF41; }
+        .section-header { color: #fff; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; border-left: 2px solid #00FF41; padding-left: 1rem; margin-bottom: 2rem; font-size: 0.75rem; }
+        .clause-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); padding: 2.5rem; transition: all 0.3s; }
+        .clause-card:hover { border-color: rgba(0, 255, 65, 0.2); background: rgba(255, 255, 255, 0.03); }
+        .mono { font-family: ui-monospace, monospace; }
+    </style>
+</head>
+<body class="p-8 md:p-24 bg-[radial-gradient(#1a1a1a_1px,transparent_1px)] [background-size:40px_40px]">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-24">
+            <a href="index.html" class="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-[#00FF41] transition mb-12 inline-block">← Return to Command Center</a>
+            <h1 class="text-6xl font-black text-white uppercase tracking-tighter leading-none mb-4">Master <span class="neon-text italic">Terms</span></h1>
+            <p class="text-[10px] mono uppercase tracking-[0.5em] text-gray-500">Service Agreement // Version 1.0.2 // Delaware Jurisdiction</p>
+        </header>
+
+        <div class="space-y-8">
+            
+            <div class="clause-card rounded-sm">
+                <div class="section-header">01 // Operational Delivery</div>
+                <p class="text-sm mb-4">Ghost Architect operates exclusively as an <strong>Asynchronous Intelligence Unit</strong>. Engagement does not include live meetings, video conferences, or real-time stand-ups.</p>
+                <p class="text-[12px] italic text-gray-500 underline decoration-[#00FF41]/20">Communication is conducted via secure ticketing, documentation updates, or encrypted PDF reports only.</p>
+            </div>
+
+            <div class="clause-card rounded-sm">
+                <div class="section-header">02 // Financial Settlement</div>
+                <p class="text-sm mb-4">All services are priced and settled in <strong>United States Dollars (USD)</strong>. International clients are responsible for their own conversion fees via Stripe or ACH transfers.</p>
+                <div class="mt-4 grid grid-cols-2 gap-4 text-[10px] mono font-bold uppercase text-white/40">
+                    <div class="p-2 border border-white/5">Net 15 Default Terms</div>
+                    <div class="p-2 border border-white/5">No Local Currency Accepted</div>
+                </div>
+            </div>
+
+            <div class="clause-card rounded-sm">
+                <div class="section-header">03 // Intellectual Property</div>
+                <p class="text-sm">While all infrastructure reports and specific remediation plans belong to the Client, all <strong>Ghost Architect proprietary software (Sentinel-X, IAM Hunter, etc.)</strong> and internal methodologies remain the sole property of the Delaware entity.</p>
+            </div>
+
+            <div class="clause-card rounded-sm">
+                <div class="section-header">04 // Liability & Risk</div>
+                <p class="text-sm">Ghost Architect provides high-signal infrastructure audits. We are not responsible for architectural failures occurring outside the specific audit scope or due to client misconfigurations after report delivery.</p>
+            </div>
+
+        </div>
+
+        <footer class="mt-32 pb-20 border-t border-white/5 pt-12 text-center md:text-left">
+            <p class="text-[10px] mono uppercase tracking-[0.4em] text-gray-600 mb-2">Ghost Architect // Delaware Registered Business</p>
+            <p class="text-[9px] text-gray-800 font-bold uppercase tracking-widest">Acceptance of service constitutes agreement to these master terms.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

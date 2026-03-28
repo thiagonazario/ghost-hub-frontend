@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Compliance | Ghost Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #777; font-family: 'Inter', sans-serif; line-height: 1.6; }
+        .neon-text { color: #00FF41; }
+        .legal-card { border: 1px solid rgba(255, 255, 255, 0.03); background: rgba(255, 255, 255, 0.01); transition: border 0.3s; }
+        .legal-card:hover { border-color: rgba(0, 255, 65, 0.2); }
+        h2, h3 { color: #fff; text-transform: uppercase; letter-spacing: -0.02em; }
+        .mono { font-family: ui-monospace, monospace; }
+    </style>
+</head>
+<body class="p-8 md:p-24 bg-[radial-gradient(#1a1a1a_1px,transparent_1px)] [background-size:40px_40px]">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-24">
+            <a href="index.html" class="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-[#00FF41] transition mb-12 inline-block">← Back to Hub</a>
+            <h1 class="text-6xl font-black text-white uppercase tracking-tighter leading-none">Global <span class="neon-text italic">Governance</span></h1>
+            <p class="mt-6 text-xs mono tracking-widest uppercase text-gray-500 underline decoration-[#00FF41]/30">Operating Jurisdiction: Delaware // International Service Provision</p>
+        </header>
+
+        <div class="grid gap-12">
+            
+            <section class="legal-card p-12 rounded-sm">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="text-[#00FF41] mono text-xs"></span>
+                    <h2 class="text-2xl font-black">Delaware LLC Framework</h2>
+                </div>
+                <p class="text-sm mb-6">
+                    Ghost Architect is structured as a Delaware Limited Liability Company (LLC). This jurisdiction is selected for its robust legal precedent in intellectual property protection and corporate privacy.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-[11px] uppercase tracking-widest font-bold text-gray-400">
+                    <div class="border-l border-white/10 pl-4">
+                        <span class="block text-white mb-2">Liability Protection</span>
+                        Complete separation of personal and professional assets under US Law.
+                    </div>
+                    <div class="border-l border-white/10 pl-4">
+                        <span class="block text-white mb-2">Privacy Focus</span>
+                        Ownership details are kept shielded to maintain operational security.
+                    </div>
+                </div>
+            </section>
+
+            <section class="legal-card p-12 rounded-sm">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="text-[#00FF41] mono text-xs"></span>
+                    <h2 class="text-2xl font-black">Data Sovereignty</h2>
+                </div>
+                <p class="text-sm mb-6 italic">
+                    "We do not act as data processors; we act as infrastructure auditors."
+                </p>
+                <p class="text-sm mb-8">
+                    Our engagement model ensures that sensitive customer data never leaves the client's environment. All audits are performed via **Read-Only** access, ensuring zero impact on data integrity.
+                </p>
+                <ul class="space-y-4 text-[10px] mono uppercase">
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#00FF41] rounded-full"></span> SOC2 Alignment: Infrastructure Mapping Only</li>
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#00FF41] rounded-full"></span> GDPR/CCPA: Zero PII (Personally Identifiable Information) Collection</li>
+                </ul>
+            </section>
+
+            <section class="legal-card p-12 rounded-sm">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="text-[#00FF41] mono text-xs"></span>
+                    <h2 class="text-2xl font-black">Global Invoicing</h2>
+                </div>
+                <p class="text-sm mb-8 leading-relaxed">
+                    All financial transactions are conducted in **USD**. We utilize automated billing platforms (Stripe/Mercury) to ensure transparent, borderless transactions for our global client base.
+                </p>
+                <div class="bg-white/5 p-6 rounded-sm border border-white/5">
+                    <h4 class="text-[10px] text-white font-bold mb-4 uppercase tracking-widest">Standard Terms</h4>
+                    <div class="grid grid-cols-2 gap-4 text-[11px]">
+                        <p>Payment: Net 15 / Net 30</p>
+                        <p>Method: Wire / ACH / Credit</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="mt-32 pb-20 text-center">
+            <p class="text-[9px] mono uppercase tracking-[0.4em] text-gray-600">
+                Ghost Architect // Delaware Registered // No Physical Presence Required
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

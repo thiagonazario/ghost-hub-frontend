@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | Protocol Verified</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #050505; color: #00FF41; font-family: 'Courier New', Courier, monospace; overflow: hidden; }
+        .glitch { animation: glitch 1s linear infinite; }
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px, 0) skew(0deg); }
+            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+            62% { transform: translate(0, 0) skew(5deg); }
+        }
+        .scanline {
+            width: 100%; height: 2px; background: rgba(0, 255, 65, 0.1);
+            position: absolute; top: 0; animation: scan 4s linear infinite;
+        }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="scanline"></div>
+    
+    <div class="max-w-xl w-full p-8 border border-[#00FF41]/20 bg-black/80 backdrop-blur-md relative">
+        <div class="mb-6">
+            <span class="text-[10px] bg-[#00FF41] text-black px-2 py-1 font-bold">STATUS: AUTHORIZED</span>
+        </div>
+
+        <div id="terminal-text" class="text-sm leading-relaxed mb-8">
+            </div>
+
+        <div id="success-content" class="hidden opacity-0 transition-opacity duration-1000">
+            <h1 class="text-4xl font-black text-white mb-4 uppercase tracking-tighter italic">Signal Received.</h1>
+            <p class="text-gray-400 mb-8 leading-relaxed">
+                Your credentials have been logged. The signal has been routed to our Discord Command Center. 
+                Expect a tactical briefing within 24 hours.
+            </p>
+            <div class="flex gap-4">
+                <a href="index.html" class="text-[10px] border border-[#00FF41]/40 px-6 py-2 hover:bg-[#00FF41] hover:text-black transition uppercase font-bold tracking-widest">Return to Base</a>
+                <span class="text-[10px] text-[#00FF41]/40 flex items-center font-bold italic">// Hardened by Design v1.0</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const lines = [
+            "> Initializing Ghost Handshake...",
+            "> Bypassing Click-Farm filters...",
+            "> Syncing with Discord Webhook...",
+            "> Payload delivered to Architect.",
+            "> [SUCCESS] Channel Secured."
+        ];
+
+        const terminal = document.getElementById('terminal-text');
+        const content = document.getElementById('success-content');
+        let index = 0;
+
+        function type() {
+            if (index < lines.length) {
+                terminal.innerHTML += `<p>${lines[index]}</p>`;
+                index++;
+                setTimeout(type, 600);
+            } else {
+                setTimeout(() => {
+                    terminal.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+                    setTimeout(() => {
+                        terminal.style.display = 'none';
+                        content.classList.remove('hidden');
+                        content.classList.add('opacity-100');
+                    }, 500);
+                }, 1000);
+            }
+        }
+        type();
+    </script>
+</body>
+</html>
