@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | Sentinel-X Forensic Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; color: #111827; -webkit-print-color-adjust: exact; }
+        .ghost-accent { color: #00FF41; }
+        .bg-ghost { background-color: #050505 !important; }
+        .mono { font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace; }
+        .page-break { page-break-after: always; }
+        @media print {
+            body { background-color: white; padding: 0; }
+            .no-print { display: none; }
+            .shadow-2xl { box-shadow: none; }
+            .border { border-color: #eee !important; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-gray-200">
+        
+        <div class="page-break">
+            <div class="bg-[#050505] p-8 flex justify-between items-center text-white">
+                <div>
+                    <h1 class="text-xs uppercase tracking-[0.4em] text-gray-400 font-bold mb-1">Confidential Infrastructure Audit</h1>
+                    <h2 class="text-2xl font-black uppercase tracking-tighter italic">Sentinel<span class="ghost-accent">-X</span></h2>
+                </div>
+                <div class="text-right">
+                    <p class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">Target: Boutique-Scale-01 // v1.1</p>
+                    <p class="text-[10px] text-gray-500 font-mono italic underline">STRICTLY CONFIDENTIAL</p>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                    <span class="w-4 h-1 bg-[#00FF41]"></span> 1. The Burn Rate Analysis
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-red-50 p-6 rounded-lg border border-red-100">
+                        <p class="text-[10px] uppercase font-bold text-red-600 mb-1 tracking-widest">Monthly Waste</p>
+                        <p class="text-4xl font-black text-red-700">$3,180.00</p>
+                        <p class="text-[10px] text-red-500 mt-1 uppercase font-bold italic underline">Immediate Leakage</p>
+                    </div>
+                    <div class="bg-[#050505] p-6 rounded-lg border border-gray-800">
+                        <p class="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-widest">Efficiency Score</p>
+                        <p class="text-4xl font-black ghost-accent">48.2%</p>
+                        <p class="text-[10px] text-gray-500 mt-1 uppercase font-bold tracking-widest italic">Critical State</p>
+                    </div>
+                    <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+                        <p class="text-[10px] uppercase font-bold text-orange-600 mb-1 tracking-widest">Annual Burn (12m)</p>
+                        <p class="text-4xl font-black text-orange-700">$38,160.00</p>
+                        <p class="text-[10px] text-orange-500 mt-1 uppercase font-bold font-mono">Uncapped Liability</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-sm border border-gray-100 mb-8">
+                    <h4 class="text-[10px] uppercase font-black text-gray-400 mb-6 tracking-[0.3em] text-center">Sentinel-X Scanned Assets</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div><p class="text-2xl font-bold text-gray-800">18</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">RDS Clusters</p></div>
+                        <div><p class="text-2xl font-bold text-gray-800">142</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">EC2 Nodes</p></div>
+                        <div><p class="text-2xl font-bold text-gray-800">214</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">Snapshots</p></div>
+                        <div><p class="text-2xl font-bold text-gray-800">12</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">Load Balancers</p></div>
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-[#00FF41] p-6 bg-green-50/50">
+                    <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                        "Conclusion: Your infrastructure is currently subsidizing AWS shareholder dividends with <span class="text-red-600 font-bold italic">$3.1k/month</span> in ghost resources. This report provides the tactical path to zero-waste."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break p-8 border-t border-gray-100">
+            <h3 class="text-lg font-bold mb-8 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                <span class="w-4 h-1 bg-red-500"></span> 2. Forensic Findings Inventory
+            </h3>
+            
+            <div class="overflow-hidden rounded-lg border border-gray-200">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead class="bg-gray-100 uppercase font-black text-gray-500 text-[9px] tracking-widest">
+                        <tr>
+                            <th class="p-4 border-b">Resource Type</th>
+                            <th class="p-4 border-b">ID / Region</th>
+                            <th class="p-4 border-b">Severety</th>
+                            <th class="p-4 border-b text-right">Waste/mo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="mono divide-y divide-gray-100">
+                        <tr>
+                            <td class="p-4 font-bold text-red-600">RDS_ZOMBIE</td>
+                            <td class="p-4 text-gray-500">db-replica-staging (sa-east-1)</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-[9px] font-bold">CRITICAL</span></td>
+                            <td class="p-4 text-right font-bold">$1,450.00</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-red-600">EC2_ZOMBIE</td>
+                            <td class="p-4 text-gray-500">i-0a492...cad (us-east-1)</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-[9px] font-bold">CRITICAL</span></td>
+                            <td class="p-4 text-right font-bold">$840.00</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-orange-600">EBS_ORPHAN</td>
+                            <td class="p-4 text-gray-500">vol-0921... (us-west-2)</td>
+                            <td class="p-4"><span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-[9px] font-bold">HIGH</span></td>
+                            <td class="p-4 text-right font-bold">$320.00</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-orange-600">ELB_EMPTY</td>
+                            <td class="p-4 text-gray-500">alb-internal-legacy (eu-central-1)</td>
+                            <td class="p-4"><span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-[9px] font-bold">HIGH</span></td>
+                            <td class="p-4 text-right font-bold">$210.00</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-yellow-600">EIP_UNUSED</td>
+                            <td class="p-4 text-gray-500">52.44.11.23 (ap-southeast-1)</td>
+                            <td class="p-4"><span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full text-[9px] font-bold">MEDIUM</span></td>
+                            <td class="p-4 text-right font-bold">$75.00</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-gray-400">EBS_SNAPSHOT_OLD</td>
+                            <td class="p-4 text-gray-500">snap-2023-bak (us-east-1)</td>
+                            <td class="p-4"><span class="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full text-[9px] font-bold">LOW</span></td>
+                            <td class="p-4 text-right font-bold">$285.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 p-4 bg-red-50 rounded-lg border-dashed border border-red-200">
+                <p class="text-[10px] text-red-700 font-mono italic">
+                    [!] ALERT: 14 resources were identified in Regions currently not listed in your main dashboard (sa-east-1, eu-central-1). Ghost-Architect specializes in hunting cross-region leakage that often bypasses standard billing tools.
+                </p>
+            </div>
+        </div>
+
+        <div class="p-8 border-t border-gray-100">
+            <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                <span class="w-4 h-1 bg-[#050505]"></span> 3. Remediation Strategy
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-gray-400 mb-4 tracking-widest">Phase 01: Immediate Kill</h5>
+                    <ul class="text-xs space-y-3 text-gray-600 font-mono">
+                        <li>[ ] Terminate RDS Ghost Instance (db-replica)</li>
+                        <li>[ ] Purge 32 Detached EBS Volumes</li>
+                        <li>[ ] Release 12 Unused Elastic IPs</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-gray-400 mb-4 tracking-widest">Phase 02: Hardening</h5>
+                    <ul class="text-xs space-y-3 text-gray-600 font-mono">
+                        <li>[ ] Apply S3 Lifecycle Policies (Hygene)</li>
+                        <li>[ ] Downsize c5.4xlarge nodes to t3.large</li>
+                        <li>[ ] Delete snapshots older than 180 days</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-[#050505] p-10 rounded-lg text-center text-white border-b-8 border-[#00FF41]">
+                <p class="text-[10px] uppercase tracking-[0.4em] mb-4 text-gray-400 font-bold">Operation: Ghost Sentry Activation</p>
+                <h4 class="text-2xl font-black mb-6 italic uppercase tracking-tighter">STOP THE BLEEDING TODAY.</h4>
+                <button class="bg-white text-black font-black px-12 py-5 rounded-sm text-xs uppercase hover:bg-[#00FF41] transition-all transform hover:-translate-y-1">
+                    Download Full Tactical Kit
+                </button>
+                <p class="text-[9px] text-gray-600 mt-6 uppercase tracking-widest">Includes: Cleanup CLI Scripts // Terraform Hardening Snippets // Monthly Monitoring</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-[10px] text-gray-400 mt-12 font-mono tracking-widest uppercase pb-10">
+        Ghost Architect // Delaware // Porto Alegre // Scan ID: GA-2026-Boutique-99
+    </footer>
+
+</body>
+</html>

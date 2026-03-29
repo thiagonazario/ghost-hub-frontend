@@ -14,6 +14,12 @@
         code { color: #00FF41; background: rgba(0, 0, 0, 0.4); padding: 2px 6px; border-radius: 4px; }
         .faq-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; }
         .faq-card:hover { border-color: rgba(0, 255, 65, 0.2); background: rgba(255,255,255,0.05); }
+
+        /* Ajuste para preenchimento automático no modo dark */
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px #0a0a0a inset !important;
+            -webkit-text-fill-color: white !important;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -59,7 +65,7 @@
   ghostarchitect/ghost-armor</pre>
                 </div>
 
-                <p class="text-[9px] text-gray-600 mb-6 font-mono uppercase text-center">
+                <p class="text-[9px] text-gray-600 mb-6 font-mono uppercase text-center tracking-widest">
                     Port Scan // Bayesian Impact // Perimeter Mapping
                 </p>
                 
@@ -73,12 +79,30 @@
             <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sync Network Audit</h3>
             <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Unlock your Bayesian Risk Score and Hardening Script</p>
             
-            <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
-                <input type="email" id="sync-email" placeholder="network-admin@company.com" class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-[#00FF41] transition-all font-mono">
-                <button onclick="triggerStripe()" class="bg-[#00FF41] text-black font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-[#00FF41]/20">
+            <form action="https://buy.stripe.com/28E3cw7Nnbbc3nl4CVaAw04" method="GET" class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
+                
+                <input 
+                    type="email" 
+                    name="prefilled_email" 
+                    id="sync-email" 
+                    placeholder="network-admin@company.com" 
+                    required
+                    class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-[#00FF41] transition-all font-mono"
+                >
+                
+                <button type="submit" class="bg-[#00FF41] text-black font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-[#00FF41]/20">
                     Get Network Dossier ($197)
                 </button>
-            </div>
+
+                <div class="mt-4">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest">
+                        Want to see the data first? 
+                        <a href="sample-report-armor.html" target="_blank" class="text-[#00FF41] hover:text-white transition-colors underline underline-offset-4 decoration-white/20">
+                            Here a sample network risk dossier
+                        </a>
+                    </p>
+                </div>
+            </form>
         </div>
 
         <section class="mt-32 border-t border-white/5 pt-20">
@@ -92,34 +116,10 @@
                 </div>
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Does it perform active Port Scanning?</h4>
-                    <p class="text-gray-500 leading-relaxed">Ghost Armor analyzes Security Groups and VPC Flow Logs metadata. It maps open paths without sending a single packet to your instances, ensuring zero impact on your production performance.</p>
+                    <p class="text-gray-500 leading-relaxed">Ghost Armor analyzes Security Groups and VPC Flow Logs metadata. It maps open paths without sending a single packet to your instances, ensuring zero impact on production performance.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Can it detect "Shadow" resources?</h4>
-                    <p class="text-gray-500 leading-relaxed">Yes. By cross-referencing Route53 records with Load Balancer configs, we identify "Ghost Gateways" and abandoned endpoints that are still publicly accessible but no longer monitored.</p>
+                    <p class="text-gray-500 leading-relaxed">Yes. By cross-referencing Route53 records with Load Balancer configs, we identify "Ghost Gateways" and abandoned endpoints that are still publicly accessible.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
-                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What is the "Hardening Script"?</h4>
-                    <p class="text-gray-100 leading-relaxed">The Dossier ($197) includes a Terraform/CloudFormation snippet to instantly patch Security Group leaks and apply restrictive Network ACLs without breaking your application flow.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="p-12 text-center border-t border-white/5 mt-auto">
-        <p class="text-[10px] text-gray-600 font-mono uppercase tracking-[0.2em]">Ghost Architect // Hardened by Design // 2026</p>
-    </footer>
-
-    <script>
-        function triggerStripe() {
-            const email = document.getElementById('sync-email').value;
-            if(email.includes('@')) {
-                const STRIPE_LINK = "https://buy.stripe.com/SEU_LINK_GHOST_ARMOR"; 
-                window.location.href = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email);
-            } else {
-                alert("Please enter a valid business email to sync your data.");
-            }
-        }
-    </script>
-</body>
-</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | IAMRoleHunter Forensic Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; color: #111827; -webkit-print-color-adjust: exact; }
+        .hunter-accent { color: #ff3e3e; }
+        .bg-hunter { background-color: #0d0d0d !important; }
+        .mono { font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace; }
+        .page-break { page-break-after: always; }
+        @media print {
+            body { background-color: white; padding: 0; }
+            .no-print { display: none; }
+            .shadow-2xl { box-shadow: none; }
+            .border { border-color: #eee !important; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-gray-200">
+        
+        <div class="page-break">
+            <div class="bg-[#0d0d0d] p-8 flex justify-between items-center text-white border-b-4 border-red-600">
+                <div>
+                    <h1 class="text-xs uppercase tracking-[0.4em] text-gray-500 font-bold mb-1">Identity & Access Audit</h1>
+                    <h2 class="text-2xl font-black uppercase tracking-tighter italic">IAM<span class="hunter-accent">RoleHunter</span></h2>
+                </div>
+                <div class="text-right">
+                    <p class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">Engine: 1.2.0-GlobalGhost</p>
+                    <p class="text-[10px] text-red-500 font-mono font-bold animate-pulse">NON-COMPLIANT DETECTED</p>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                    <span class="w-4 h-1 bg-red-600"></span> 1. Projected Breach Exposure
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-red-950 p-6 rounded-lg border border-red-900">
+                        <p class="text-[10px] uppercase font-bold text-red-400 mb-1 tracking-widest">Risk Exposure (USD)</p>
+                        <p class="text-4xl font-black text-white">$42,500.00</p>
+                        <p class="text-[9px] text-red-300 mt-2 uppercase font-bold italic underline">Potential Breach Cost</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <p class="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-widest">Risk Status</p>
+                        <p class="text-4xl font-black text-red-600">CRITICAL</p>
+                        <p class="text-[10px] text-gray-500 mt-2 uppercase font-bold tracking-widest italic">Action Required</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <p class="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-widest">Compliance Status</p>
+                        <p class="text-xl font-black text-gray-800 leading-tight">SOC2/ISO27001 <br><span class="text-red-600">FAILED</span></p>
+                    </div>
+                </div>
+
+                <div class="bg-[#0d0d0d] p-8 rounded-sm mb-8 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-2 opacity-10 font-black text-6xl">IAM</div>
+                    <h4 class="text-[10px] uppercase font-black text-gray-500 mb-6 tracking-[0.3em] text-center">Identity Hygiene Scan Coverage</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div><p class="text-2xl font-bold text-white">42</p><p class="text-[9px] uppercase text-gray-500 font-bold tracking-tighter">IAM Users</p></div>
+                        <div><p class="text-2xl font-bold text-white">12</p><p class="text-[9px] uppercase text-gray-500 font-bold tracking-tighter">Admin Accounts</p></div>
+                        <div><p class="text-2xl font-bold text-white">85</p><p class="text-[9px] uppercase text-gray-500 font-bold tracking-tighter">Service Roles</p></div>
+                        <div><p class="text-2xl font-bold text-white">15</p><p class="text-[9px] uppercase text-gray-500 font-bold tracking-tighter">Trust Violations</p></div>
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-red-600 p-6 bg-red-50">
+                    <p class="text-sm text-gray-700 leading-relaxed font-medium italic">
+                        "Conclusion: The infrastructure presents high-gravity entry points. Publicly assumable roles and missing MFA on administrative accounts create a direct path to total account takeover."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break p-8 border-t border-gray-100">
+            <h3 class="text-lg font-bold mb-8 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                <span class="w-4 h-1 bg-red-600"></span> 2. Identity Forensics: Critical Findings
+            </h3>
+            
+            <div class="overflow-hidden rounded-lg border border-gray-200">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead class="bg-gray-100 uppercase font-black text-gray-500 text-[9px] tracking-widest">
+                        <tr>
+                            <th class="p-4 border-b">Threat Type</th>
+                            <th class="p-4 border-b">Identity / Resource</th>
+                            <th class="p-4 border-b">Exposure Level</th>
+                            <th class="p-4 border-b text-right">Proj. Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody class="mono divide-y divide-gray-100">
+                        <tr>
+                            <td class="p-4 font-bold text-red-600">PUBLIC_TRUST</td>
+                            <td class="p-4 text-gray-500">Role: cross-account-migration</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-[9px] font-bold">CRITICAL</span></td>
+                            <td class="p-4 text-right font-bold">$12,500.00</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-red-600">MISSING_MFA</td>
+                            <td class="p-4 text-gray-500">User: godmode-admin</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-[9px] font-bold">CRITICAL</span></td>
+                            <td class="p-4 text-right font-bold">$2,500.00</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-orange-600">STALE_KEY</td>
+                            <td class="p-4 text-gray-500">User: deploy-svc (412 days)</td>
+                            <td class="p-4"><span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-[9px] font-bold">HIGH</span></td>
+                            <td class="p-4 text-right font-bold">$750.00</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-red-600">PRIVILEGE_ABUSE</td>
+                            <td class="p-4 text-gray-500">User: temp-dev-junior</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-[9px] font-bold">CRITICAL</span></td>
+                            <td class="p-4 text-right font-bold">$2,500.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 p-4 bg-red-50 rounded-lg border-dashed border border-red-200">
+                <p class="text-[10px] text-red-700 font-mono italic">
+                    [!] FORENSIC ALERT: Multiple keys found in GitHub public repositories matching User: 'deploy-svc'. Rotating these keys is a non-negotiable priority to avoid lateral movement.
+                </p>
+            </div>
+        </div>
+
+        <div class="p-8 border-t border-gray-100">
+            <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                <span class="w-4 h-1 bg-[#0d0d0d]"></span> 3. Identity Hardening Protocol
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-gray-400 mb-4 tracking-widest">Immediate Response (0-24h)</h5>
+                    <ul class="text-xs space-y-3 text-gray-600 font-mono">
+                        <li>[ ] Enforce MFA on all AdministratorAccess users.</li>
+                        <li>[ ] Revoke Public Principal (*) from Trust Policies.</li>
+                        <li>[ ] Invalidate Access Keys older than 90 days.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-gray-400 mb-4 tracking-widest">Governance (Long-term)</h5>
+                    <ul class="text-xs space-y-3 text-gray-600 font-mono">
+                        <li>[ ] Migrate from IAM Users to IAM Identity Center (SSO).</li>
+                        <li>[ ] Implement Service Control Policies (SCPs) to block regions.</li>
+                        <li>[ ] Automate Key Rotation via Lambda/SecretManager.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-[#0d0d0d] p-10 rounded-lg text-center text-white border-b-8 border-red-600">
+                <p class="text-[10px] uppercase tracking-[0.4em] mb-4 text-gray-400 font-bold">Secure Your Identity Layer</p>
+                <h4 class="text-2xl font-black mb-6 italic uppercase tracking-tighter">BLINDAR O AMBIENTE IMEDIATAMENTE</h4>
+                <button class="bg-white text-black font-black px-12 py-5 rounded-sm text-xs uppercase hover:bg-red-600 hover:text-white transition-all transform hover:-translate-y-1">
+                    Download Remediation Kit ($97)
+                </button>
+                <p class="text-[9px] text-gray-500 mt-6 uppercase tracking-widest">Includes: IAM Policy Hardening Generator // MFA Enforcement Scripts // SOC2 Compliance Checklist</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-[10px] text-gray-400 mt-12 font-mono tracking-widest uppercase pb-10">
+        Ghost Architect // Identity Intelligence // 2026 // IAM-HUNTER-X
+    </footer>
+
+</body>
+</html>

@@ -14,6 +14,12 @@
         code { color: #00FF41; background: rgba(0, 0, 0, 0.4); padding: 2px 6px; border-radius: 4px; }
         .faq-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; }
         .faq-card:hover { border-color: rgba(0, 255, 65, 0.2); background: rgba(255,255,255,0.05); }
+        
+        /* Ajuste para o input não quebrar o estilo no modo form */
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px #0a0a0a inset !important;
+            -webkit-text-fill-color: white !important;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -25,6 +31,7 @@
     </nav>
 
     <main class="max-w-4xl mx-auto px-6 py-20 w-full">
+        
         <div class="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
                 <h1 class="text-4xl font-black text-white mb-6 uppercase tracking-tighter leading-none">
@@ -59,7 +66,7 @@
   ghostarchitect/iam-hunter</pre>
                 </div>
 
-                <p class="text-[9px] text-gray-600 mb-6 font-mono uppercase text-center">
+                <p class="text-[9px] text-gray-600 mb-6 font-mono uppercase text-center tracking-widest">
                     SOC2 Mapping // Privilege Detection // MFA Verification
                 </p>
                 
@@ -73,12 +80,30 @@
             <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sync Identity Report</h3>
             <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Unlock your IAM Risk Score and Remediation Plan</p>
             
-            <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
-                <input type="email" id="sync-email" placeholder="security-officer@company.com" class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-[#00FF41] transition-all font-mono">
-                <button onclick="triggerStripe()" class="bg-[#00FF41] text-black font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-[#00FF41]/20">
-                    Get Full Identity Report ($147)
+            <form action="https://buy.stripe.com/00wdRaaZz3IKga78TbaAw03" method="GET" class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
+                
+                <input 
+                    type="email" 
+                    name="prefilled_email" 
+                    id="sync-email" 
+                    placeholder="security-officer@company.com" 
+                    required 
+                    class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-[#00FF41] transition-all font-mono"
+                >
+                
+                <button type="submit" class="bg-[#00FF41] text-black font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-[#00FF41]/20">
+                    Get Full Identity Report ($490)
                 </button>
-            </div>
+
+                <div class="mt-4">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest">
+                        Any doubts? 
+                        <a href="sample-report-iam.html" target="_blank" class="text-[#00FF41] hover:text-white transition-colors underline underline-offset-4 decoration-white/20">
+                            See a sample of our identity reports here
+                        </a>
+                    </p>
+                </div>
+            </form>
         </div>
 
         <section class="mt-32 border-t border-white/5 pt-20">
@@ -100,7 +125,7 @@
                 </div>
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Can I automate remediation?</h4>
-                    <p class="text-gray-100 leading-relaxed">The Premium Report ($147) includes a <code>Hardened-IAM.sh</code> script to automatically revoke over-privileged permissions and enforce MFA across all detected vulnerable accounts.</p>
+                    <p class="text-gray-100 leading-relaxed">The Premium Report includes a <code>Hardened-IAM.sh</code> script to automatically revoke over-privileged permissions and enforce MFA across all detected vulnerable accounts.</p>
                 </div>
             </div>
         </section>
@@ -110,16 +135,5 @@
         <p class="text-[10px] text-gray-600 font-mono uppercase tracking-[0.2em]">Ghost Architect // Hardened by Design // 2026</p>
     </footer>
 
-    <script>
-        function triggerStripe() {
-            const email = document.getElementById('sync-email').value;
-            if(email.includes('@')) {
-                const STRIPE_LINK = "https://buy.stripe.com/SEU_LINK_IAM_HUNTER"; 
-                window.location.href = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email);
-            } else {
-                alert("Please enter a valid security email to sync your data.");
-            }
-        }
-    </script>
 </body>
 </html>
