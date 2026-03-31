@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghost Architect | Cloud Governance & Audit</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="fbf91d96-da57-4160-bbd5-803554b92392"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
@@ -21,83 +19,20 @@
         .grid-bg { background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 30px 30px; }
         h1 { letter-spacing: -0.05em; line-height: 0.9 !important; }
 
-        /* Estilo para o Modal de Login */
-        #login-modal:target { display: flex; }
-
-        /* Estilo do Live Counter */
-        #live-counter { font-family: 'Courier New', Courier, monospace; }
-        .scan-line { animation: blink 1.5s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        /* Estilo para o input de membro */
+        .member-input::placeholder { color: #333; text-transform: uppercase; font-size: 10px; letter-spacing: 0.1em; }
     </style>
 </head>
 <body class="grid-bg">
 
-    <div class="fixed bottom-0 left-0 w-full bg-black/80 backdrop-blur-md border-t border-white/5 px-6 py-3 z-50 flex justify-between items-center text-[10px] font-mono tracking-[0.2em] uppercase">
-        <div class="flex items-center gap-4">
-            <span class="scan-line text-[#00FF41] font-bold">● system_active</span>
-            <span id="live-status-text" class="text-gray-400 italic truncate max-w-[200px] md:max-w-none transition-opacity duration-500">
-                > initializing_ghost_protocol...
-            </span>
-        </div>
-        
-        <div class="hidden sm:flex gap-8 items-center">
-            <div class="flex gap-4 text-gray-600">
-                <span>nodes: 03</span>
-                <span>audits: 1,402</span>
-            </div>
-            
-            <a href="https://t.me/GhostArchitect" target="_blank" class="text-[#00FF41] hover:text-white transition-all flex items-center gap-1 border-x border-white/10 px-6 py-1 font-black">
-                [ COMMS_LINK: ENCRYPTED ]
-            </a>
-            
-            <span class="text-white/20 font-bold">v1.0.42_secure</span>
-        </div>
-    </div>
-
     <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto border-b border-white/5">
-        <div class="flex items-center gap-3">
-            <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
-                <path d="M50 10C30 10 15 25 15 45V85L25 75L35 85L50 70L65 85L75 75L85 85V45C85 25 70 10 50 10Z" fill="white"/>
-                <circle cx="38" cy="45" r="5" fill="black"/>
-                <circle cx="62" cy="45" r="5" fill="black"/>
-            </svg>
-            <div class="font-black text-2xl tracking-tighter text-white uppercase">GHOST<span class="neon-text">ARCHITECT</span></div>
-        </div>
-        <div class="hidden md:flex gap-10 text-[10px] uppercase tracking-[0.2em] font-bold items-center">
+        <div class="font-black text-2xl tracking-tighter text-white uppercase">GHOST<span class="neon-text">ARCHITECT</span></div>
+        <div class="hidden md:flex gap-10 text-[10px] uppercase tracking-[0.2em] font-bold">
             <a href="#products" class="hover:text-white transition">Audit Suite</a>
-            <a href="#boutique" class="text-purple-400 hover:text-purple-300 transition">Boutique Consulting</a>
-            <a href="#login-modal" class="px-4 py-2 border border-white/10 rounded font-mono text-gray-500 hover:text-[#00FF41] hover:border-[#00FF41] transition">
-                [ ACCESS_PORTAL ]
-            </a>
+            <a href="#membership" class="text-[#00FF41] hover:text-white transition">Sentinel Access</a>
+            <a href="#boutique" class="text-purple-400 hover:text-purple-300 transition">Elite Intervention</a>
         </div>
     </nav>
-
-    <div id="login-modal" class="hidden fixed inset-0 bg-black/95 z-50 flex-col items-center justify-center p-6 backdrop-blur-sm">
-        <div class="max-w-md w-full bg-black border border-[#00FF41]/30 p-10 rounded-sm shadow-[0_0_50px_rgba(0,255,65,0.1)] relative">
-            <a href="#" class="absolute top-4 right-4 text-gray-700 hover:text-white font-mono text-xs">[ ESC ]</a>
-            
-            <h4 class="neon-text text-[10px] font-mono tracking-[0.5em] mb-4 uppercase">Identity Verification</h4>
-            <h2 class="text-white font-black text-2xl mb-6 uppercase tracking-tighter">Client Access</h2>
-            
-            <p class="text-xs text-gray-500 mb-8 font-mono leading-relaxed">
-                Enter your professional email. If an active audit is associated with your identity, a <span class="text-white">secure magic link</span> will be dispatched. No passwords required.
-            </p>
-
-            <form id="login-form" class="space-y-4">
-                <input type="email" id="user-email" placeholder="professional@company.com" required 
-                    class="w-full bg-white/5 border border-white/10 p-4 rounded-sm text-white font-mono text-sm outline-none focus:border-[#00FF41] transition">
-                
-                <button type="submit" id="submit-btn" class="w-full bg-[#00FF41] text-black font-black py-4 rounded-sm uppercase text-[10px] tracking-widest hover:bg-white transition">
-                    Request Access Link
-                </button>
-                <div id="auth-status" class="text-[9px] font-mono uppercase text-center mt-4 min-h-[12px]"></div>
-            </form>
-            
-            <p class="mt-8 text-[8px] text-gray-700 font-mono uppercase tracking-widest text-center">
-                Encrypted Auth Protocol v2.0 // Stateless Session
-            </p>
-        </div>
-    </div>
 
     <main>
         <section class="py-32 px-6 text-center max-w-5xl mx-auto">
@@ -115,7 +50,6 @@
         </section>
 
         <section id="products" class="max-w-7xl mx-auto px-6 mb-32 border-t border-white/5 pt-32">
-            
             <div class="mb-12">
                 <div class="flex items-center gap-4 mb-4">
                     <h4 class="neon-text text-[10px] font-bold uppercase tracking-[0.4em]">Domain 01</h4>
@@ -124,20 +58,7 @@
                 <h3 class="text-4xl font-black text-white tracking-tighter uppercase">Cloud Governance & Mapping</h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-32">
-                
-                <div class="neon-border p-10 bg-black group rounded-sm flex flex-col justify-between">
-                    <div>
-                        <div class="text-[10px] text-[#00FF41] mb-6 font-mono font-bold tracking-widest uppercase border-b border-[#00FF41]/20 pb-2 inline-block">v1.0 Operational</div>
-                        <h5 class="text-3xl font-black text-white mb-4 tracking-tighter uppercase">Sentinel-X</h5>
-                        <p class="text-sm leading-relaxed mb-8 text-gray-400 font-medium italic">Automatic detection of zombie resources and orphan snapshots. ROI: 12x.</p>
-                    </div>
-                    <a href="sentinel.html" class="flex items-center text-[10px] font-black text-white group-hover:neon-text transition tracking-widest uppercase mt-4">
-                        Launch Core Module ($490)
-                        <svg class="w-4 h-4 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </a>
-                </div>
-
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
                 <div class="neon-border p-10 bg-black group rounded-sm flex flex-col justify-between">
                     <div>
                         <div class="text-[10px] text-[#00FF41] mb-6 font-mono font-bold tracking-widest uppercase border-b border-[#00FF41]/20 pb-2 inline-block">v1.2 Operational</div>
@@ -162,19 +83,23 @@
                     </a>
                 </div>
 
-                <div class="p-10 border border-white/5 bg-black/40 rounded-sm opacity-40 grayscale flex flex-col justify-between relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-                    <div class="relative z-20">
-                        <div class="text-[10px] text-gray-500 mb-6 font-mono font-bold tracking-widest uppercase border-b border-white/10 pb-2 inline-block italic">Next Release</div>
-                        <h5 class="text-3xl font-black text-gray-600 mb-4 tracking-tighter uppercase">Ghost Mapper</h5>
-                        <p class="text-sm leading-relaxed mb-8 text-gray-700 font-medium">Visual infrastructure graph mapping. Detect architecture drifts and hidden dependencies in real-time.</p>
+                <div id="membership" class="border border-dashed border-[#00FF41]/30 p-10 bg-black/60 group rounded-sm flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4">
+                        <span class="text-[8px] font-black text-black bg-[#00FF41] px-2 py-1 rounded tracking-widest uppercase">Member Only</span>
                     </div>
-                    <div class="relative z-20 flex items-center justify-between">
-                        <span class="text-[9px] bg-white/5 px-3 py-1 text-gray-600 font-bold uppercase tracking-widest">Under Construction</span>
-                        <div class="text-[10px] font-black text-gray-800 uppercase tracking-widest">Classified v2.0</div>
+                    <div>
+                        <div class="text-[10px] text-gray-500 mb-6 font-mono font-bold tracking-widest uppercase border-b border-white/5 pb-2 inline-block">Subscription</div>
+                        <h5 class="text-3xl font-black text-white mb-4 tracking-tighter uppercase">Ghost Sentinel</h5>
+                        <p class="text-sm leading-relaxed mb-8 text-gray-500 font-medium italic">Continuous monitoring & weekly forensic diff reports. Maintain your hardened status.</p>
                     </div>
+                    
+                    <form action="https://buy.stripe.com/SUA_ID_ASSINATURA" method="GET" class="space-y-3">
+                        <input type="email" name="prefilled_email" placeholder="Verified Email..." required class="member-input w-full bg-white/5 border border-white/10 p-3 text-[10px] text-white font-mono outline-none focus:border-[#00FF41]">
+                        <button type="submit" class="w-full py-3 bg-transparent border border-[#00FF41] text-[#00FF41] text-[10px] font-black uppercase tracking-widest hover:bg-[#00FF41] hover:text-black transition">
+                            Activate Guard ($97/mo)
+                        </button>
+                    </form>
                 </div>
-
             </div>
 
             <div class="max-w-4xl mx-auto mb-24 border-l-4 border-purple-500/40 pl-8 py-4 bg-gradient-to-r from-purple-500/5 to-transparent">
@@ -194,8 +119,7 @@
                 <h3 class="text-4xl font-black text-white tracking-tighter uppercase">AI & LLM Intelligence</h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="neon-border-purple p-10 bg-black group rounded-sm flex flex-col justify-between relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-4">
                         <span class="text-[8px] font-black text-white bg-purple-600 px-2 py-1 rounded tracking-widest uppercase shadow-lg shadow-purple-500/20">Priority Release</span>
@@ -203,7 +127,7 @@
                     <div>
                         <div class="text-[10px] text-purple-400 mb-6 font-mono font-bold uppercase border-b border-purple-400/20 pb-2 inline-block tracking-[0.2em]">Active Development</div>
                         <h5 class="text-3xl font-black text-white mb-4 tracking-tighter uppercase">AI Ghost Sentry</h5>
-                        <p class="text-sm leading-relaxed mb-8 text-gray-300 font-medium">Real-time governance for autonomous agents. Kill infinite reasoning loops and stop token burn before it hits your invoice. Hardened financial stability for LLM scale.</p>
+                        <p class="text-sm leading-relaxed mb-8 text-gray-300 font-medium">Real-time governance for autonomous agents. Kill infinite reasoning loops and stop token burn before it hits your invoice.</p>
                     </div>
                     <div class="flex items-center justify-between mt-4">
                         <span class="text-[9px] text-purple-300 font-bold uppercase tracking-widest">Target: Q4 2026</span>
@@ -224,59 +148,47 @@
                         Status: Bayesian Training Phase
                     </div>
                 </div>
-
             </div>
         </section>
 
         <section id="boutique" class="max-w-7xl mx-auto px-6 mb-40">
-            <div class="bg-gradient-to-br from-purple-900/20 to-black p-16 border border-purple-500/30 rounded-3xl relative overflow-hidden text-center md:text-left">
-                <div class="relative z-10">
-                    <h3 class="text-4xl font-black text-white mb-6 italic tracking-tighter uppercase leading-none">Need Surgical Intervention?</h3>
-                    <p class="text-gray-400 max-w-2xl mb-10 text-lg leading-relaxed font-medium">
-                        Automated audits provide the map, but some infrastructures require a specialized strike team. 
-                        Our Boutique Consulting offers high-end cloud remediation and architectural redesign.
-                    </p>
-                    <a href="briefing.html" class="inline-block bg-purple-600 text-white font-black px-12 py-4 hover:bg-purple-500 transition-all uppercase text-[10px] tracking-[0.2em] rounded-full">
-                        Apply for Consultation
-                    </a>
+            <div class="bg-gradient-to-br from-purple-900/40 to-black p-16 border-2 border-purple-500/50 rounded-3xl relative overflow-hidden">
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h4 class="text-purple-400 text-[10px] font-black uppercase tracking-[0.4em] mb-4">Elite Intervention</h4>
+                        <h3 class="text-5xl font-black text-white mb-6 italic tracking-tighter uppercase leading-none">THE NUCLEAR <br>OPTION</h3>
+                        <p class="text-gray-400 mb-8 text-sm leading-relaxed font-medium">
+                            Don't waste 40+ hours in manual remediation. Purchase our <span class="text-white">Automated Hardening Script</span>. 
+                            Runs locally via Docker. <span class="text-purple-400">Zero external access required.</span> Total privacy. Total fix.
+                        </p>
+                    </div>
+                    <div class="bg-black/40 p-8 rounded-2xl border border-white/5 text-center">
+                        <h5 class="text-white font-black text-2xl mb-2">$5,000.00</h5>
+                        <p class="text-[9px] text-gray-600 uppercase tracking-widest mb-8 font-mono italic">Fixed Price // Zero Meetings // Direct Execution</p>
+                        
+                        <form action="https://buy.stripe.com/SEU_LINK_DE_5K" method="GET">
+                            <input type="email" name="prefilled_email" placeholder="Admin Email..." required class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white text-center mb-4 font-mono outline-none focus:border-purple-500 transition-all">
+                            <button type="submit" class="w-full bg-purple-600 text-white font-black py-5 rounded-xl hover:bg-purple-500 transition-all uppercase text-[11px] tracking-[0.2em]">
+                                Get Remediation Bundle
+                            </button>
+                        </form>
+                        <p class="mt-4 text-[8px] text-gray-700 font-mono uppercase tracking-tighter">Encrypted delivery of Docker binary post-payment</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="p-20 border-t border-white/5 text-center bg-black/20 pb-40">
+    <footer class="p-20 border-t border-white/5 text-center bg-black/20">
         <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mb-8">
-            <a href="legal.html" class="text-[10px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Legal // Jurisdiction</a>
-            <a href="privacy.html" class="text-[10px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Privacy // Protocol</a>
-            <a href="terms.html" class="text-[10px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Terms // MSA</a>
+            <a href="legal.html" class="text-[9px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Legal // Jurisdiction</a>
+            <a href="privacy.html" class="text-[9px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Privacy // Protocol</a>
+            <a href="terms.html" class="text-[9px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Terms // MSA</a>
         </div>
         <p class="text-[10px] text-gray-800 font-mono font-bold tracking-[0.4em] uppercase">
             Ghost Architect &copy; 2026. Porto Alegre // Bangkok // Delaware. // Hardened by Design.
         </p>
     </footer>
 
-    <script>
-        const statusText = document.getElementById('live-status-text');
-        const ghostLogs = [
-            "> analyzing_orphan_snapshots...",
-            "> security_audit: us-east-1",
-            "> waste_detected: $1,240/mo",
-            "> magic_link_dispatched",
-            "> s3_bucket_scan_complete",
-            "> hardening_infra_protocol",
-            "> node_sync: porto_alegre",
-            "> audit_requested: london_core"
-        ];
-
-        let logIndex = 0;
-        setInterval(() => {
-            statusText.style.opacity = '0';
-            setTimeout(() => {
-                statusText.innerText = ghostLogs[logIndex];
-                statusText.style.opacity = '1';
-                logIndex = (logIndex + 1) % ghostLogs.length;
-            }, 500);
-        }, 5000);
-    </script>
 </body>
 </html>

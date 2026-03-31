@@ -32,16 +32,24 @@
 </head>
 <body class="grid-bg">
 
-    <div class="fixed bottom-0 left-0 w-full bg-black/60 backdrop-blur-md border-t border-white/5 px-6 py-2 z-50 flex justify-between items-center text-[8px] font-mono tracking-[0.2em] uppercase">
+    <div class="fixed bottom-0 left-0 w-full bg-black/80 backdrop-blur-md border-t border-white/5 px-6 py-3 z-50 flex justify-between items-center text-[10px] font-mono tracking-[0.2em] uppercase">
         <div class="flex items-center gap-4">
-            <span class="scan-line text-[#00FF41]">● system_active</span>
-            <span id="live-status-text" class="text-gray-500 italic truncate max-w-[200px] md:max-w-none transition-opacity duration-500">
+            <span class="scan-line text-[#00FF41] font-bold">● system_active</span>
+            <span id="live-status-text" class="text-gray-400 italic truncate max-w-[200px] md:max-w-none transition-opacity duration-500">
                 > initializing_ghost_protocol...
             </span>
         </div>
-        <div class="hidden sm:flex gap-6 text-gray-700">
-            <span>nodes: 03</span>
-            <span>audits: 1,402</span>
+        
+        <div class="hidden sm:flex gap-8 items-center">
+            <div class="flex gap-4 text-gray-600">
+                <span>nodes: 03</span>
+                <span>audits: 1,402</span>
+            </div>
+            
+            <a href="https://t.me/GhostArchitect" target="_blank" class="text-[#00FF41] hover:text-white transition-all flex items-center gap-1 border-x border-white/10 px-6 py-1 font-black">
+                [ COMMS_LINK: ENCRYPTED ]
+            </a>
+            
             <span class="text-white/20 font-bold">v1.0.42_secure</span>
         </div>
     </div>
@@ -236,12 +244,11 @@
         </section>
     </main>
 
-    <footer class="p-20 border-t border-white/5 text-center bg-black/20">
+    <footer class="p-20 border-t border-white/5 text-center bg-black/20 pb-40">
         <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mb-8">
-            <a href="https://t.me/GhostArchitect" class="text-[9px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">[ SECURE_TELEGRAM_CHANNEL ]</a>
-            <a href="legal.html" class="text-[9px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Legal // Jurisdiction</a>
-            <a href="privacy.html" class="text-[9px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Privacy // Protocol</a>
-            <a href="terms.html" class="text-[9px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Terms // MSA</a>
+            <a href="legal.html" class="text-[10px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Legal // Jurisdiction</a>
+            <a href="privacy.html" class="text-[10px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Privacy // Protocol</a>
+            <a href="terms.html" class="text-[10px] text-gray-600 hover:text-[#00FF41] font-mono font-bold tracking-[0.3em] uppercase transition">Terms // MSA</a>
         </div>
         <p class="text-[10px] text-gray-800 font-mono font-bold tracking-[0.4em] uppercase">
             Ghost Architect &copy; 2026. Porto Alegre // Bangkok // Delaware. // Hardened by Design.
@@ -249,47 +256,6 @@
     </footer>
 
     <script>
-        const loginForm = document.getElementById('login-form');
-        const authStatus = document.getElementById('auth-status');
-        const submitBtn = document.getElementById('submit-btn');
-
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('user-email').value;
-            const apiUrl = 'https://9xg9l7dhxf.execute-api.us-east-1.amazonaws.com/login';
-
-            authStatus.innerText = '> INITIALIZING_AUTH_PROTOCOL...';
-            authStatus.style.color = '#afafaf';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.5';
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: email })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    authStatus.innerText = '> SUCCESS: MAGIC_LINK_DISPATCHED.';
-                    authStatus.style.color = '#00FF41';
-                    loginForm.reset();
-                } else {
-                    authStatus.innerText = '> ERROR: ' + (data.error || 'ACCESS_DENIED');
-                    authStatus.style.color = '#ef4444';
-                }
-            } catch (err) {
-                authStatus.innerText = '> CONNECTION_FAILURE: CHECK_NETWORK';
-                authStatus.style.color = '#ef4444';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
-            }
-        });
-
         const statusText = document.getElementById('live-status-text');
         const ghostLogs = [
             "> analyzing_orphan_snapshots...",
@@ -304,13 +270,13 @@
 
         let logIndex = 0;
         setInterval(() => {
-            statusText.style.opacity = '0'; // Fade out
+            statusText.style.opacity = '0';
             setTimeout(() => {
                 statusText.innerText = ghostLogs[logIndex];
-                statusText.style.opacity = '1'; // Fade in
+                statusText.style.opacity = '1';
                 logIndex = (logIndex + 1) % ghostLogs.length;
             }, 500);
-        }, 5000); // Muda a cada 5 segundos
+        }, 5000);
     </script>
 </body>
 </html>
