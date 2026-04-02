@@ -52,6 +52,11 @@
             100% { opacity: 1; }
         }
         .flicker-container { animation: ghostFlicker 3.9s infinite; }
+
+        /* Custom Scrollbar para o PDF Preview (Verde Neon) */
+        .pdf-preview::-webkit-scrollbar { width: 6px; }
+        .pdf-preview::-webkit-scrollbar-track { background: #050505; }
+        .pdf-preview::-webkit-scrollbar-thumb { background: #00FF41; border-radius: 10px; }
     </style>
 </head>
 <body class="grid-bg">
@@ -218,54 +223,90 @@
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="max-w-4xl mx-auto mb-24 border-l-4 border-purple-500/40 pl-8 py-4 bg-gradient-to-r from-purple-500/5 to-transparent">
-                <p class="text-xl md:text-2xl text-gray-300 italic font-medium leading-relaxed tracking-tight">
-                    "Stop trading momentum for administrative noise. If an automated process isn't defined by value, the architecture itself should deny its execution. Sovereignty is found in the precise termination of waste."
-                </p>
-                <cite class="text-purple-400 font-bold mt-4 block not-italic uppercase tracking-[0.2em] text-xs">
-                    — GHOST ARCHITECT // YIELDOPS TACTICAL LOGIC
-                </cite>
-            </div>
-
-            <div class="mb-12">
-                <div class="flex items-center gap-4 mb-4">
-                    <h4 class="text-purple-500 text-[10px] font-bold uppercase tracking-[0.4em]">Domain 02</h4>
-                    <div class="h-[1px] flex-grow bg-gradient-to-r from-purple-500/30 to-transparent"></div>
-                </div>
-                <h3 class="text-4xl font-black text-white tracking-tighter uppercase">AI & LLM Intelligence</h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <div class="neon-border-purple p-10 bg-black group rounded-sm flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4">
-                        <span class="text-[8px] font-black text-white bg-purple-600 px-2 py-1 rounded tracking-widest uppercase shadow-lg shadow-purple-500/20">Priority Release</span>
-                    </div>
-                    <div>
-                        <div class="text-[10px] text-purple-400 mb-6 font-mono font-bold uppercase border-b border-purple-400/20 pb-2 inline-block tracking-[0.2em]">Active Development</div>
-                        <h5 class="text-3xl font-black text-white mb-4 tracking-tighter uppercase">AI Ghost Sentry</h5>
-                        <p class="text-sm leading-relaxed mb-8 text-gray-300 font-medium italic">
-                            <strong class="text-white">Autonomous Governance:</strong> Real-time oversight for LLM agents. Kill infinite reasoning loops and stop token burn before it hits your invoice. Hardened financial stability for LLM scale.
-                        </p>
-                    </div>
-                    <div class="flex items-center justify-between mt-4">
-                        <span class="text-[9px] text-purple-300 font-bold uppercase tracking-widest">Target: Q4 2026</span>
-                        <a href="briefing.html" class="text-[10px] font-black text-white group-hover:text-purple-400 transition tracking-widest uppercase flex items-center">
-                            Join Waitlist <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
+        <section id="report-preview" class="max-w-7xl mx-auto px-6 py-20">
+            <div class="bg-gradient-to-br from-black to-[#0a0a0a] p-1 md:p-12 border border-[#00FF41]/30 rounded-3xl relative overflow-hidden">
+                <div class="text-center mb-10">
+                    <h4 class="text-[#00FF41] text-[10px] font-black uppercase tracking-[0.5em] mb-4">Tactical Output Preview</h4>
+                    <h2 class="text-4xl font-black text-white italic uppercase tracking-tighter">Sentinel-X Intelligence</h2>
                 </div>
 
-                <div class="p-10 border border-purple-500/10 bg-black/40 rounded-sm opacity-60 flex flex-col justify-between relative overflow-hidden group hover:opacity-100 transition duration-500">
-                    <div>
-                        <div class="text-[10px] text-gray-500 mb-6 font-mono font-bold uppercase border-b border-white/5 pb-2 inline-block tracking-widest italic">Phase: R&D</div>
-                        <h5 class="text-3xl font-black text-gray-400 group-hover:text-white transition mb-4 tracking-tighter uppercase font-mono">Ghost RAG-Shield</h5>
-                        <p class="text-sm leading-relaxed mb-8 text-gray-600 group-hover:text-gray-400 transition italic font-medium"><strong class="text-gray-400">Data Poisoning:</strong> Secure your Vector DBs. Detect hallucination vectors and unauthorized data injection in RAG pipelines. Hardened integrity for proprietary knowledge bases.</p>
+                <div class="max-w-4xl mx-auto h-[600px] overflow-y-auto bg-white rounded-t-sm pdf-preview shadow-[0_0_50px_rgba(0,255,65,0.1)]">
+                    <div class="p-8 text-black text-left">
+                        <div class="bg-[#050505] -mx-8 -mt-8 p-8 flex justify-between items-center text-white mb-8">
+                            <div>
+                                <h1 class="text-[10px] uppercase tracking-[0.4em] text-gray-400 font-bold mb-1">Confidential Infrastructure Audit</h1>
+                                <h2 class="text-2xl font-black uppercase tracking-tighter italic">Sentinel<span class="text-[#00FF41]">-X</span></h2>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[9px] text-gray-500 font-mono tracking-widest uppercase">Target: GA-HQ-ALPHA // v1.1</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                            <span class="w-4 h-1 bg-[#00FF41]"></span> 1. The Burn Rate Analysis
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                            <div class="bg-red-50 p-6 rounded-lg border border-red-100">
+                                <p class="text-[10px] uppercase font-bold text-red-600 mb-1 tracking-widest">Monthly Waste</p>
+                                <p class="text-3xl font-black text-red-700">$3,180.00</p>
+                            </div>
+                            <div class="bg-[#050505] p-6 rounded-lg border border-gray-800">
+                                <p class="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-widest text-white">Efficiency Score</p>
+                                <p class="text-3xl font-black text-[#00FF41]">48.2%</p>
+                            </div>
+                            <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+                                <p class="text-[10px] uppercase font-bold text-orange-600 mb-1 tracking-widest">Annual Burn</p>
+                                <p class="text-3xl font-black text-orange-700">$38,160.00</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                            <span class="w-4 h-1 bg-red-500"></span> 2. Forensic Findings Inventory
+                        </h3>
+                        <div class="overflow-hidden rounded-lg border border-gray-200 text-[11px] mb-10">
+                            <table class="w-full text-left border-collapse">
+                                <thead class="bg-gray-100 uppercase font-black text-gray-500 text-[9px] tracking-widest">
+                                    <tr>
+                                        <th class="p-4 border-b">Resource</th>
+                                        <th class="p-4 border-b">ID / Region</th>
+                                        <th class="p-4 border-b text-right">Waste/mo</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="font-mono divide-y divide-gray-100">
+                                    <tr>
+                                        <td class="p-4 font-bold text-red-600">RDS_ZOMBIE</td>
+                                        <td class="p-4 text-gray-500">db-replica-staging (sa-east-1)</td>
+                                        <td class="p-4 text-right font-bold">$1,450.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 font-bold text-red-600">EC2_ZOMBIE</td>
+                                        <td class="p-4 text-gray-500">i-0a492...cad (us-east-1)</td>
+                                        <td class="p-4 text-right font-bold">$840.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 font-bold text-orange-600">EBS_ORPHAN</td>
+                                        <td class="p-4 text-gray-500">vol-0921... (us-west-2)</td>
+                                        <td class="p-4 text-right font-bold">$320.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="border-l-4 border-[#00FF41] p-6 bg-green-50 mb-10">
+                            <p class="text-sm text-gray-700 leading-relaxed italic">
+                                "Sovereignty is found in the precise termination of waste. This audit provides the tactical IDs for immediate remediation."
+                            </p>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-2 text-[9px] font-mono text-gray-700 uppercase">
-                        <span class="w-1.5 h-1.5 bg-gray-700 rounded-full group-hover:bg-purple-500 transition animate-pulse"></span>
-                        Status: Bayesian Training Phase
-                    </div>
+                </div>
+                
+                <div class="bg-black p-6 text-center rounded-b-sm border-t border-[#00FF41]/10">
+                    <p class="text-white text-[11px] font-black uppercase tracking-widest mb-4">Identify your ghost resources in 60 minutes.</p>
+                    <a href="briefing.html" class="inline-block bg-[#00FF41] text-black font-black px-12 py-3 rounded-full text-[10px] hover:bg-white transition uppercase tracking-widest shadow-xl">
+                        Request Forensic Briefing
+                    </a>
                 </div>
             </div>
         </section>
