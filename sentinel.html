@@ -130,13 +130,11 @@
     </footer>
 
     <script>
-        // LOGICA DE CAPTURA DO ID E EMAIL DA URL
         const urlParams = new URLSearchParams(window.location.search);
         const sessionId = urlParams.get('id');
         const userEmail = urlParams.get('email');
         
         if(sessionId) {
-            // Mostra a seção de compra e esconde o aviso de espera
             document.getElementById('sync-section').classList.remove('hidden');
             if(document.getElementById('waiting-section')) {
                 document.getElementById('waiting-section').classList.add('hidden');
@@ -144,7 +142,6 @@
             
             document.getElementById('session-val').innerText = sessionId;
 
-            // Auto-preenche o e-mail vindo do terminal
             if(userEmail && userEmail !== "ANONYMOUS") {
                 const emailField = document.getElementById('sync-email');
                 emailField.value = decodeURIComponent(userEmail);
@@ -152,7 +149,6 @@
             }
         }
 
-        // FUNÇÃO DE CÓPIA COM FEEDBACK
         function copyToClipboard(btn) {
             const command = "docker run -it --rm -e AWS_ACCESS_KEY_ID=*** -e AWS_SECRET_ACCESS_KEY=*** getghostarchitect/sentinel-x";
             navigator.clipboard.writeText(command).then(() => {
