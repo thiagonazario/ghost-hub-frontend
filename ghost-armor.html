@@ -74,9 +74,11 @@
             </div>
         </div>
 
-        <div class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group">
+        <div id="sync-section" class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group hidden">
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#00FF41]/5 rounded-full blur-3xl group-hover:bg-[#00FF41]/10 transition-all"></div>
+            
             <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sync Network Audit</h3>
-            <p id="id-display" class="text-[10px] text-[#00FF41] mb-2 font-mono uppercase tracking-widest hidden">ACTIVE DEFENSE SESSION: <span id="session-val"></span></p>
+            <p id="id-display" class="text-[10px] text-[#00FF41] mb-2 font-mono uppercase tracking-widest">ACTIVE DEFENSE SESSION: <span id="session-val"></span></p>
             <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Unlock your Bayesian Risk Score and Hardening Script</p>
             
             <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
@@ -102,6 +104,27 @@
             </div>
         </div>
 
+        <div id="waiting-section" class="py-20 flex flex-col items-center justify-center border border-white/5 rounded-3xl bg-white/[0.01] transition-all duration-1000">
+            <div class="relative mb-6">
+                <div class="absolute inset-0 rounded-full bg-[#00FF41]/20 animate-ping"></div>
+                <div class="relative bg-black border border-[#00FF41]/30 p-4 rounded-full">
+                    <svg class="w-6 h-6 text-[#00FF41]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.724 10.312 8.847 11.823a11.959 11.959 0 008.553-11.822c0-1.285-.203-2.523-.582-3.686A11.959 11.959 0 0112 2.714z"></path>
+                    </svg>
+                </div>
+            </div>
+            <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.4em] mb-2">Armor Node: Mapping Perimeter</h4>
+            <p class="text-[9px] text-gray-600 font-mono uppercase tracking-widest max-w-xs text-center leading-relaxed">
+                Listening for VPC Flow Logs and Security Group metadata. <br>
+                <span class="neon-text">Bayesian Risk Model will activate upon sync.</span>
+            </p>
+            <div class="mt-8 flex gap-1">
+                <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+                <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+                <div class="w-1 h-1 bg-[#00FF41] rounded-full animate-pulse"></div>
+            </div>
+        </div>
+
         <section class="mt-32 border-t border-white/5 pt-20">
             <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-12 flex items-center gap-3">
                 <span class="w-2 h-2 bg-[#00FF41] rounded-full"></span> Security & FAQ
@@ -109,15 +132,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What is a Bayesian Risk Model?</h4>
-                    <p class="text-gray-500 leading-relaxed">Unlike static scanners, Ghost Armor uses probability models to calculate the likelihood of a lateral movement after a breach, prioritizing vulnerabilities that actually lead to critical data.</p>
+                    <p class="text-gray-500 leading-relaxed">It calculates the likelihood of a lateral movement after a breach, prioritizing vulnerabilities that lead to critical data.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Does it perform active Port Scanning?</h4>
-                    <p class="text-gray-500 leading-relaxed">Ghost Armor analyzes Security Groups and VPC Flow Logs metadata. It maps open paths without sending a single packet to your instances, ensuring zero impact on production performance.</p>
-                </div>
-                <div class="faq-card p-6 rounded-xl">
-                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Can it detect "Shadow" resources?</h4>
-                    <p class="text-gray-500 leading-relaxed">Yes. By cross-referencing Route53 records with Load Balancer configs, we identify "Ghost Gateways" and abandoned endpoints that are still publicly accessible.</p>
+                    <p class="text-gray-500 leading-relaxed">No. Ghost Armor analyzes metadata, ensuring zero impact on production performance.</p>
                 </div>
             </div>
         </section>
@@ -129,16 +148,23 @@
     </footer>
 
     <script>
-        // CAPTURA DO ID DA URL
         const urlParams = new URLSearchParams(window.location.search);
         const sessionId = urlParams.get('id');
+        const userEmail = urlParams.get('email');
         
         if(sessionId) {
-            document.getElementById('id-display').classList.remove('hidden');
+            document.getElementById('sync-section').classList.remove('hidden');
+            if(document.getElementById('waiting-section')) {
+                document.getElementById('waiting-section').classList.add('hidden');
+            }
             document.getElementById('session-val').innerText = sessionId;
+            if(userEmail && userEmail !== "ANONYMOUS") {
+                const emailField = document.getElementById('sync-email');
+                emailField.value = decodeURIComponent(userEmail);
+                emailField.classList.add('border-[#00FF41]/50');
+            }
         }
 
-        // FUNÇÃO DE CÓPIA COM FEEDBACK
         function copyToClipboard(btn) {
             const command = "docker run -it --rm -e AWS_ACCESS_KEY_ID=*** -e AWS_SECRET_ACCESS_KEY=*** getghostarchitect/ghost-armor";
             navigator.clipboard.writeText(command).then(() => {
@@ -161,7 +187,7 @@
                 const finalUrl = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email) + (sessionId ? "&client_reference_id=" + sessionId : "");
                 window.location.href = finalUrl;
             } else {
-                alert("Please enter a valid business email to sync your data.");
+                alert("Please enter a valid business email.");
             }
         }
     </script>
