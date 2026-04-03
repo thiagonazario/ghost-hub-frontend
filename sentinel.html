@@ -95,8 +95,25 @@
             </div>
         </div>
 
-        <div id="waiting-section" class="text-center py-20 opacity-30">
-            <p class="text-[10px] font-mono uppercase tracking-[0.5em]">Waiting for Cloud Sync...</p>
+        <div id="waiting-section" class="py-20 flex flex-col items-center justify-center border border-white/5 rounded-3xl bg-white/[0.01] transition-all duration-1000">
+            <div class="relative mb-6">
+                <div class="absolute inset-0 rounded-full bg-[#00FF41]/20 animate-ping"></div>
+                <div class="relative bg-black border border-[#00FF41]/30 p-4 rounded-full">
+                    <svg class="w-6 h-6 text-[#00FF41]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a9.05 9.05 0 0112.728 0M12 12V4l4 2-4 2"></path>
+                    </svg>
+                </div>
+            </div>
+            <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.4em] mb-2">Ghost Node: Awaiting Connection</h4>
+            <p class="text-[9px] text-gray-600 font-mono uppercase tracking-widest max-w-xs text-center leading-relaxed">
+                Execute the Docker command above to bridge your infrastructure with Sentinel-X. <br>
+                <span class="neon-text">Real-time sync will activate upon launch.</span>
+            </p>
+            <div class="mt-8 flex gap-2">
+                <div class="w-8 h-1 bg-white/5 rounded-full"></div>
+                <div class="w-12 h-1 bg-white/5 rounded-full"></div>
+                <div class="w-6 h-1 bg-white/5 rounded-full"></div>
+            </div>
         </div>
 
         <section class="mt-32 border-t border-white/5 pt-20">
@@ -139,9 +156,7 @@
             if(document.getElementById('waiting-section')) {
                 document.getElementById('waiting-section').classList.add('hidden');
             }
-            
             document.getElementById('session-val').innerText = sessionId;
-
             if(userEmail && userEmail !== "ANONYMOUS") {
                 const emailField = document.getElementById('sync-email');
                 emailField.value = decodeURIComponent(userEmail);
