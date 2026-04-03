@@ -75,10 +75,12 @@
             </div>
         </div>
 
-        <div class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group">
+        <div id="sync-section" class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group hidden">
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#00FF41]/5 rounded-full blur-3xl group-hover:bg-[#00FF41]/10 transition-all"></div>
+            
             <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sync Identity Report</h3>
-            <p id="id-display" class="text-[10px] text-[#00FF41] mb-2 font-mono uppercase tracking-widest hidden">ACTIVE SESSION: <span id="session-val"></span></p>
-            <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Unlock your IAM Risk Score and Remediation Plan</p>
+            <p id="id-display" class="text-[10px] text-[#00FF41] mb-2 font-mono uppercase tracking-widest">ACTIVE SESSION: <span id="session-val"></span></p>
+            <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Confirm your email to unlock your forensic report</p>
             
             <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
                 <input 
@@ -103,6 +105,27 @@
             </div>
         </div>
 
+        <div id="waiting-section" class="py-20 flex flex-col items-center justify-center border border-white/5 rounded-3xl bg-white/[0.01] transition-all duration-1000">
+            <div class="relative mb-6">
+                <div class="absolute inset-0 rounded-full bg-[#00FF41]/20 animate-ping"></div>
+                <div class="relative bg-black border border-[#00FF41]/30 p-4 rounded-full">
+                    <svg class="w-6 h-6 text-[#00FF41]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.312-2.841.873-4.083M6.75 21a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.4em] mb-2">IAM Probe: Scanning Permissions</h4>
+            <p class="text-[9px] text-gray-600 font-mono uppercase tracking-widest max-w-xs text-center leading-relaxed">
+                Awaiting Identity Trace from local container. <br>
+                <span class="neon-text">SOC2 Mapping will begin upon sync.</span>
+            </p>
+            <div class="mt-8 flex gap-2">
+                <div class="w-2 h-2 bg-white/5 rounded-full"></div>
+                <div class="w-2 h-2 bg-white/5 rounded-full"></div>
+                <div class="w-2 h-2 bg-white/5 rounded-full"></div>
+            </div>
+        </div>
+
         <section class="mt-32 border-t border-white/5 pt-20">
             <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-12 flex items-center gap-3">
                 <span class="w-2 h-2 bg-[#00FF41] rounded-full"></span> Security & FAQ
@@ -110,19 +133,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">How are my credentials handled?</h4>
-                    <p class="text-gray-500 leading-relaxed">IAM Hunter operates under <code>Hardened by Design</code> principles. Your AWS keys are used locally within the Docker runtime and never transmitted. Only encrypted metadata about policy violations is synced.</p>
+                    <p class="text-gray-500 leading-relaxed">IAM Hunter operates under <code>Hardened by Design</code> principles. Your AWS keys are used locally within the Docker runtime and never transmitted.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What does the scan cover?</h4>
-                    <p class="text-gray-500 leading-relaxed">We audit MFA status, cross-account trust relationships, unused access keys, and complex privilege escalation paths (Shadow Admins) that standard scanners often overlook.</p>
-                </div>
-                <div class="faq-card p-6 rounded-xl">
-                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Is this SOC2 compliant?</h4>
-                    <p class="text-gray-500 leading-relaxed">Yes. The resulting forensic dossier maps your identity findings directly to SOC2 Control Frameworks, providing a ready-to-use evidence document for your auditors.</p>
-                </div>
-                <div class="faq-card p-6 rounded-xl">
-                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Can I automate remediation?</h4>
-                    <p class="text-gray-100 leading-relaxed">The Premium Report includes a <code>Hardened-IAM.sh</code> script to automatically revoke over-privileged permissions and enforce MFA across all detected vulnerable accounts.</p>
+                    <p class="text-gray-500 leading-relaxed">We audit MFA status, cross-account trust relationships, unused access keys, and complex privilege escalation paths.</p>
                 </div>
             </div>
         </section>
@@ -134,16 +149,23 @@
     </footer>
 
     <script>
-        // LOGICA DE CAPTURA DO ID DA URL
         const urlParams = new URLSearchParams(window.location.search);
         const sessionId = urlParams.get('id');
+        const userEmail = urlParams.get('email');
         
         if(sessionId) {
-            document.getElementById('id-display').classList.remove('hidden');
+            document.getElementById('sync-section').classList.remove('hidden');
+            if(document.getElementById('waiting-section')) {
+                document.getElementById('waiting-section').classList.add('hidden');
+            }
             document.getElementById('session-val').innerText = sessionId;
+            if(userEmail && userEmail !== "ANONYMOUS") {
+                const emailField = document.getElementById('sync-email');
+                emailField.value = decodeURIComponent(userEmail);
+                emailField.classList.add('border-[#00FF41]/50');
+            }
         }
 
-        // FUNÇÃO DE CÓPIA COM FEEDBACK
         function copyToClipboard(btn) {
             const command = "docker run -it --rm -e AWS_ACCESS_KEY_ID=*** -e AWS_SECRET_ACCESS_KEY=*** getghostarchitect/iam-hunter";
             navigator.clipboard.writeText(command).then(() => {
@@ -166,7 +188,7 @@
                 const finalUrl = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email) + (sessionId ? "&client_reference_id=" + sessionId : "");
                 window.location.href = finalUrl;
             } else {
-                alert("Please enter a valid business email to sync your data.");
+                alert("Please enter a valid business email.");
             }
         }
     </script>
