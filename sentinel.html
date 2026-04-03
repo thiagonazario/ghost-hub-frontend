@@ -70,12 +70,12 @@
             </div>
         </div>
 
-        <div class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group">
+        <div id="sync-section" class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group hidden">
             <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#00FF41]/5 rounded-full blur-3xl group-hover:bg-[#00FF41]/10 transition-all"></div>
             
             <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sync Audit Results</h3>
-            <p id="id-display" class="text-[10px] text-[#00FF41] mb-2 font-mono uppercase tracking-widest hidden">SESSÃO ATIVA: <span id="session-val"></span></p>
-            <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Enter the email used in the scan to unlock your forensic report</p>
+            <p id="id-display" class="text-[10px] text-[#00FF41] mb-2 font-mono uppercase tracking-widest">SESSÃO ATIVA: <span id="session-val"></span></p>
+            <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Confirm your email to unlock your forensic report</p>
             
             <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
                 <input type="email" id="sync-email" placeholder="it-director@company.com" class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-[#00FF41] transition-all font-mono">
@@ -93,6 +93,10 @@
                     </p>
                 </div>
             </div>
+        </div>
+
+        <div id="waiting-section" class="text-center py-20 opacity-30">
+            <p class="text-[10px] font-mono uppercase tracking-[0.5em]">Waiting for Cloud Sync...</p>
         </div>
 
         <section class="mt-32 border-t border-white/5 pt-20">
@@ -126,13 +130,26 @@
     </footer>
 
     <script>
-        // LOGICA DE CAPTURA DO ID DA URL
+        // LOGICA DE CAPTURA DO ID E EMAIL DA URL
         const urlParams = new URLSearchParams(window.location.search);
         const sessionId = urlParams.get('id');
+        const userEmail = urlParams.get('email');
         
         if(sessionId) {
-            document.getElementById('id-display').classList.remove('hidden');
+            // Mostra a seção de compra e esconde o aviso de espera
+            document.getElementById('sync-section').classList.remove('hidden');
+            if(document.getElementById('waiting-section')) {
+                document.getElementById('waiting-section').classList.add('hidden');
+            }
+            
             document.getElementById('session-val').innerText = sessionId;
+
+            // Auto-preenche o e-mail vindo do terminal
+            if(userEmail && userEmail !== "ANONYMOUS") {
+                const emailField = document.getElementById('sync-email');
+                emailField.value = decodeURIComponent(userEmail);
+                emailField.classList.add('border-[#00FF41]/50');
+            }
         }
 
         // FUNÇÃO DE CÓPIA COM FEEDBACK
@@ -155,7 +172,6 @@
             const email = document.getElementById('sync-email').value;
             if(email.includes('@')) {
                 const STRIPE_LINK = "https://buy.stripe.com/SEU_LINK_AQUI"; 
-                // Passamos o email E o Session ID (se houver) para o Stripe
                 const finalUrl = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email) + (sessionId ? "&client_reference_id=" + sessionId : "");
                 window.location.href = finalUrl;
             } else {
