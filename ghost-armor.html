@@ -15,7 +15,6 @@
         .faq-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; }
         .faq-card:hover { border-color: rgba(0, 255, 65, 0.2); background: rgba(255,255,255,0.05); }
 
-        /* Ajuste para preenchimento automático no modo dark */
         input:-webkit-autofill {
             -webkit-box-shadow: 0 0 0 30px #0a0a0a inset !important;
             -webkit-text-fill-color: white !important;
@@ -69,7 +68,7 @@
                     Port Scan // Bayesian Impact // Perimeter Mapping
                 </p>
                 
-                <button onclick="navigator.clipboard.writeText('docker run -it --rm -e AWS_ACCESS_KEY_ID=*** -e AWS_SECRET_ACCESS_KEY=*** ghostarchitect/ghost-armor')" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-gray-200 transition uppercase text-[10px] tracking-widest">
+                <button onclick="copyToClipboard(this)" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-gray-200 transition uppercase text-[10px] tracking-widest">
                     Copy Shield Command
                 </button>
             </div>
@@ -77,21 +76,19 @@
 
         <div class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group">
             <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sync Network Audit</h3>
+            <p id="id-display" class="text-[10px] text-[#00FF41] mb-2 font-mono uppercase tracking-widest hidden">ACTIVE DEFENSE SESSION: <span id="session-val"></span></p>
             <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Unlock your Bayesian Risk Score and Hardening Script</p>
             
-            <form action="https://buy.stripe.com/28E3cw7Nnbbc3nl4CVaAw04" method="GET" class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
-                
+            <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
                 <input 
                     type="email" 
-                    name="prefilled_email" 
                     id="sync-email" 
                     placeholder="network-admin@company.com" 
-                    required
                     class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-[#00FF41] transition-all font-mono"
                 >
                 
-                <button type="submit" class="bg-[#00FF41] text-black font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-[#00FF41]/20">
-                    Get Network Dossier
+                <button onclick="triggerStripe()" class="bg-[#00FF41] text-black font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-[#00FF41]/20">
+                    Get Network Dossier ($490)
                 </button>
 
                 <div class="mt-4">
@@ -102,7 +99,7 @@
                         </a>
                     </p>
                 </div>
-            </form>
+            </div>
         </div>
 
         <section class="mt-32 border-t border-white/5 pt-20">
@@ -122,4 +119,51 @@
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Can it detect "Shadow" resources?</h4>
                     <p class="text-gray-500 leading-relaxed">Yes. By cross-referencing Route53 records with Load Balancer configs, we identify "Ghost Gateways" and abandoned endpoints that are still publicly accessible.</p>
                 </div>
-                <div class="faq-card p-6 rounded-xl">
+            </div>
+        </section>
+    </main>
+
+    <footer class="p-12 text-center border-t border-white/5 mt-auto">
+        <p class="opacity-[0.02] text-[6px] font-mono select-none">M N H R D S C L F T</p>
+        <p class="text-[10px] text-gray-600 font-mono uppercase tracking-[0.2em]">Ghost Architect // Hardened by Design // 2026</p>
+    </footer>
+
+    <script>
+        // CAPTURA DO ID DA URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('id');
+        
+        if(sessionId) {
+            document.getElementById('id-display').classList.remove('hidden');
+            document.getElementById('session-val').innerText = sessionId;
+        }
+
+        // FUNÇÃO DE CÓPIA COM FEEDBACK
+        function copyToClipboard(btn) {
+            const command = "docker run -it --rm -e AWS_ACCESS_KEY_ID=*** -e AWS_SECRET_ACCESS_KEY=*** getghostarchitect/ghost-armor";
+            navigator.clipboard.writeText(command).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "✓ COPIED TO CLIPBOARD";
+                btn.style.backgroundColor = "#00FF41";
+                btn.style.color = "#000";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = "#fff";
+                    btn.style.color = "#000";
+                }, 2000);
+            });
+        }
+
+        function triggerStripe() {
+            const email = document.getElementById('sync-email').value;
+            if(email.includes('@')) {
+                const STRIPE_LINK = "https://buy.stripe.com/28E3cw7Nnbbc3nl4CVaAw04"; 
+                const finalUrl = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email) + (sessionId ? "&client_reference_id=" + sessionId : "");
+                window.location.href = finalUrl;
+            } else {
+                alert("Please enter a valid business email to sync your data.");
+            }
+        }
+    </script>
+</body>
+</html>

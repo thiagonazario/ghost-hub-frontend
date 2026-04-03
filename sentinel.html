@@ -54,7 +54,7 @@
                 <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest text-center">Launch via Docker</h4>
                 
                 <div class="bg-black p-4 rounded-lg mb-6 border border-white/10 font-mono text-[11px] text-green-400">
-                    <pre class="whitespace-pre-wrap">docker run -it --rm \
+                    <pre id="docker-cmd" class="whitespace-pre-wrap">docker run -it --rm \
   -e AWS_ACCESS_KEY_ID=*** \
   -e AWS_SECRET_ACCESS_KEY=*** \
   getghostarchitect/sentinel-x</pre>
@@ -64,7 +64,7 @@
                     Requires Docker Runtime // Non-Invasive // Read-Only Access
                 </p>
                 
-                <button onclick="navigator.clipboard.writeText('docker run -it --rm -e AWS_ACCESS_KEY_ID=*** -e AWS_SECRET_ACCESS_KEY=*** ghostarchitect/sentinel-x')" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-gray-200 transition uppercase text-[10px] tracking-widest">
+                <button onclick="copyToClipboard(this)" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-gray-200 transition uppercase text-[10px] tracking-widest">
                     Copy Launch Command
                 </button>
             </div>
@@ -74,6 +74,7 @@
             <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#00FF41]/5 rounded-full blur-3xl group-hover:bg-[#00FF41]/10 transition-all"></div>
             
             <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sync Audit Results</h3>
+            <p id="id-display" class="text-[10px] text-[#00FF41] mb-2 font-mono uppercase tracking-widest hidden">SESSÃO ATIVA: <span id="session-val"></span></p>
             <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Enter the email used in the scan to unlock your forensic report</p>
             
             <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
@@ -125,12 +126,38 @@
     </footer>
 
     <script>
+        // LOGICA DE CAPTURA DO ID DA URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('id');
+        
+        if(sessionId) {
+            document.getElementById('id-display').classList.remove('hidden');
+            document.getElementById('session-val').innerText = sessionId;
+        }
+
+        // FUNÇÃO DE CÓPIA COM FEEDBACK
+        function copyToClipboard(btn) {
+            const command = "docker run -it --rm -e AWS_ACCESS_KEY_ID=*** -e AWS_SECRET_ACCESS_KEY=*** getghostarchitect/sentinel-x";
+            navigator.clipboard.writeText(command).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "✓ COPIED TO CLIPBOARD";
+                btn.style.backgroundColor = "#00FF41";
+                btn.style.color = "#000";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = "#fff";
+                    btn.style.color = "#000";
+                }, 2000);
+            });
+        }
+
         function triggerStripe() {
             const email = document.getElementById('sync-email').value;
             if(email.includes('@')) {
-                // Link do Stripe Checkout
                 const STRIPE_LINK = "https://buy.stripe.com/SEU_LINK_AQUI"; 
-                window.location.href = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email);
+                // Passamos o email E o Session ID (se houver) para o Stripe
+                const finalUrl = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email) + (sessionId ? "&client_reference_id=" + sessionId : "");
+                window.location.href = finalUrl;
             } else {
                 alert("Please enter a valid business email to sync your data.");
             }
