@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | Ghost-Verdict Forensic Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; color: #111827; -webkit-print-color-adjust: exact; }
+        .ghost-accent { color: #00FF41; }
+        .bg-ghost { background-color: #050505 !important; }
+        .mono { font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, Monaco, Consolas, monospace; }
+        .page-break { page-break-after: always; }
+        @media print {
+            body { background-color: white; padding: 0; }
+            .no-print { display: none; }
+            .shadow-2xl { box-shadow: none; }
+            .border { border-color: #eee !important; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-gray-200">
+        
+        <div class="page-break">
+            <div class="bg-[#050505] p-8 flex justify-between items-center text-white">
+                <div>
+                    <h1 class="text-xs uppercase tracking-[0.4em] text-gray-400 font-bold mb-1">Confidential Infrastructure Audit</h1>
+                    <h2 class="text-2xl font-black uppercase tracking-tighter italic">Ghost<span class="ghost-accent">-Verdict</span></h2>
+                </div>
+                <div class="text-right">
+                    <p class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">Target: Boutique-Scale-01 // v2.1</p>
+                    <p class="text-[10px] text-gray-500 font-mono italic underline">STRICTLY CONFIDENTIAL // Zero-Retention Protocol</p>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                    <span class="w-4 h-1 bg-[#00FF41]"></span> 1. The Risk Exposure Analysis
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-red-50 p-6 rounded-lg border border-red-100 hover:shadow-lg transition-shadow">
+                        <p class="text-[10px] uppercase font-bold text-red-600 mb-1 tracking-widest">Privilege Gap</p>
+                        <p class="text-4xl font-black text-red-700">82%</p>
+                        <p class="text-[10px] text-red-500 mt-1 uppercase font-bold italic underline">Critical Over-Permission</p>
+                    </div>
+                    
+                    <div class="bg-[#050505] p-6 rounded-lg border border-gray-800">
+                        <p class="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-widest">Hardening Score</p>
+                        <p class="text-4xl font-black ghost-accent">D-</p>
+                        <p class="text-[10px] text-gray-500 mt-1 uppercase font-bold tracking-widest italic">Compliance Failure (SOC2/HIPAA)</p>
+                    </div>
+                    
+                    <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+                        <p class="text-[10px] uppercase font-bold text-orange-600 mb-1 tracking-widest">Exploit Vectors</p>
+                        <p class="text-4xl font-black text-orange-700">14</p>
+                        <p class="text-[10px] text-orange-500 mt-1 uppercase font-bold font-mono">Potential Lateral Paths</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-sm border border-gray-100 mb-8 hover:bg-gray-100/50 transition-colors">
+                    <h4 class="text-[10px] uppercase font-black text-gray-400 mb-6 tracking-[0.3em] text-center">Ghost-Verdict Scanned Entities</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div><p class="text-2xl font-bold text-gray-800">12</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">IAM Groups</p></div>
+                        <div><p class="text-2xl font-bold text-gray-800">45</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">IAM Users</p></div>
+                        <div><p class="text-2xl font-bold text-gray-800">118</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">Inline Policies</p></div>
+                        <div><p class="text-2xl font-bold text-gray-800">8</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">Cross-Account Trusts</p></div>
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-red-600 p-6 bg-red-50/50">
+                    <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                        "Conclusion: Your current IAM configuration grants <span class="text-red-600 font-bold italic">Full Admin capabilities (*)</span> to 8 shadow entities across 3 regions. This bypasses Least Privilege standards and creates a direct lateral movement path for ransomware. Remediation is mandatory."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break p-8 border-t border-gray-100">
+            <h3 class="text-lg font-bold mb-8 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                <span class="w-4 h-1 bg-red-500"></span> 2. Forensic Policy Inventory
+            </h3>
+            
+            <div class="overflow-hidden rounded-lg border border-gray-200 shadow-inner">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead class="bg-gray-100 uppercase font-black text-gray-500 text-[9px] tracking-widest">
+                        <tr>
+                            <th class="p-4 border-b">Violated Principle</th>
+                            <th class="p-4 border-b">Policy Node / ID</th>
+                            <th class="p-4 border-b">Risk Level</th>
+                            <th class="p-4 border-b text-right">Surgical Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="mono divide-y divide-gray-100">
+                        <tr>
+                            <td class="p-4 font-bold text-red-600">Action: "*"</td>
+                            <td class="p-4 text-gray-500">ReadOnly-Legacy-Group (sa-east-1)</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-[9px] font-bold">CRITICAL</span></td>
+                            <td class="p-4 text-right font-bold text-green-600">Scoped to READ_ONLY</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-red-600">Resource: "*"</td>
+                            <td class="p-4 text-gray-500">S3-Backup-Policy (us-east-1)</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-[9px] font-bold">CRITICAL</span></td>
+                            <td class="p-4 text-right font-bold text-green-600">ID Specification applied</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-orange-600">iam:PassRole</td>
+                            <td class="p-4 text-gray-500">Jenkins-CI-Role (us-west-2)</td>
+                            <td class="p-4"><span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-[9px] font-bold">HIGH</span></td>
+                            <td class="p-4 text-right font-bold text-green-600">Condition added</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-orange-600">sts:AssumeRole</td>
+                            <td class="p-4 text-gray-500">Stale-Dev-Trust (eu-central-1)</td>
+                            <td class="p-4"><span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-[9px] font-bold">HIGH</span></td>
+                            <td class="p-4 text-right font-bold text-green-600">Role ARN scoped</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 p-4 bg-red-50 rounded-lg border-dashed border border-red-200">
+                <p class="text-[10px] text-red-700 font-mono italic">
+                    [!] ALERT: 14 shadow administrators were identified in Regions currently not listed in your main security dashboard (sa-east-1, eu-central-1). Ghost-Verdict specializes in hunting cross-region privilege escalation that often bypasses standard compliance tools.
+                </p>
+            </div>
+        </div>
+
+        <div class="p-8 border-t border-gray-100">
+            <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                <span class="w-4 h-1 bg-[#050505]"></span> 3. Remediation Strategy
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-gray-400 mb-4 tracking-widest">Phase 01: Immediate Kill</h5>
+                    <ul class="text-xs space-y-3 text-gray-600 font-mono bg-gray-50 p-4 rounded-lg">
+                        <li>[ ] Scope "*" Actions in ReadOnly Group</li>
+                        <li>[ ] Add Resource IDs to S3 Backup Policy</li>
+                        <li>[ ] Delete Cross-Account Trust with `Stale-Dev`</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-gray-400 mb-4 tracking-widest">Phase 02: Hardening</h5>
+                    <ul class="text-xs space-y-3 text-gray-600 font-mono bg-gray-50 p-4 rounded-lg">
+                        <li>[ ] Apply conditions to `iam:PassRole` Actions</li>
+                        <li>[ ] Audit and downsize 32 inline policies</li>
+                        <li>[ ] Restrict Region Access via SCP (Governance)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-[#050505] p-10 rounded-lg text-center text-white border-b-8 border-[#00FF41] transform hover:scale-[1.02] transition-transform">
+                <p class="text-[10px] uppercase tracking-[0.4em] mb-4 text-gray-400 font-bold">Operation: Ghost Sentry Activation</p>
+                <h4 class="text-2xl font-black mb-6 italic uppercase tracking-tighter text-green-400">HARDEN YOUR CRYPT TODAY.</h4>
+                <button class="bg-white text-black font-black px-12 py-5 rounded-sm text-xs uppercase hover:bg-[#00FF41] transition-all transform hover:-translate-y-1">
+                    Download Hardened Tactical Kit
+                </button>
+                <p class="text-[9px] text-gray-600 mt-6 uppercase tracking-widest">Includes: Refined JSON Policies // Terraform Hardening Snippets // SOC2 Compliance Mapping</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-[10px] text-gray-400 mt-12 font-mono tracking-widest uppercase pb-10">
+        Ghost Architect // Delaware // Porto Alegre // Bangkok // Scan ID: GA-2026-Verdict-99
+    </footer>
+
+</body>
+</html>
