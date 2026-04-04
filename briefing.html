@@ -156,33 +156,18 @@
             const data = {
                 email: document.getElementById('email').value,
                 domain: document.getElementById('domain').value,
-                scope: document.getElementById('scope').value || 'Not Specified',
+                infrastructure: document.getElementById('scope').value || 'Not Specified',
                 problem: document.getElementById('problem').value
             };
 
-            const DISCORD_WEBHOOK_URL = '***REMOVED***';
-
-            const payload = {
-                username: "GHOST_SENTRY",
-                embeds: [{
-                    title: "🚨 NEW INBOUND BRIEFING // SECURE PROTOCOL",
-                    color: 65281, 
-                    fields: [
-                        { name: "IDENT_EMAIL", value: `\`${data.email}\``, inline: true },
-                        { name: "TARGET_DOMAIN", value: `\`${data.domain}\``, inline: true },
-                        { name: "INFRA_SCOPE", value: `\`${data.scope}\`` },
-                        { name: "BRIEFING_DOSSIER", value: `\`\`\`${data.problem}\`\`\`` }
-                    ],
-                    footer: { text: "GHOST ARCHITECT // V1.0 // SOURCE: BRIEFING_PAGE" },
-                    timestamp: new Date().toISOString()
-                }]
-            };
+            // URL do seu Worker da Cloudflare (Protegendo o Webhook)
+            const WORKER_URL = 'https://purple-sea-6b4d.thiagonazariosl.workers.dev';
 
             try {
-                const response = await fetch(DISCORD_WEBHOOK_URL, {
+                const response = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify(data)
                 });
 
                 if (response.ok) {
