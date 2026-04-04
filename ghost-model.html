@@ -81,7 +81,7 @@
             <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
                 <input type="email" id="sync-email" placeholder="security-officer@company.com" class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-purple-500 transition-all font-mono">
                 
-                <button onclick="triggerStripe()" class="bg-purple-600 text-white font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-purple-500/20">
+                <button onclick="triggerStripeAudit()" class="bg-purple-600 text-white font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-purple-500/20">
                     Unlock Full Forensic Audit ($390)
                 </button>
 
@@ -125,14 +125,6 @@
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Is it privacy-safe?</h4>
                     <p class="text-gray-500 leading-relaxed">The scan happens locally. We do not receive your logs. We only receive an encrypted metadata file (.stnx) via secure webhook to generate your PDF report.</p>
                 </div>
-                <div class="faq-card p-6 rounded-xl">
-                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What about false positives?</h4>
-                    <p class="text-gray-500 leading-relaxed">Our forensic report categorizes tools by risk (Critical to Low). We prioritize domains with high sovereignty risk (like DeepSeek) or privacy risk (like Otter.ai).</p>
-                </div>
-                <div class="faq-card p-10 bg-purple-900/10 border-purple-500/20 rounded-xl">
-                    <h4 class="text-purple-400 font-bold mb-3 uppercase text-xs tracking-wider">Why the subscription?</h4>
-                    <p class="text-gray-400 leading-relaxed">Shadow AI is a moving target. New models appear daily. Our $79/mo monitor ensures your telemetry is audited weekly with updated signature databases.</p>
-                </div>
             </div>
         </section>
     </main>
@@ -142,10 +134,12 @@
     </footer>
 
     <script>
+        // Captura de parâmetros da URL vindos do Terminal do Docker
         const urlParams = new URLSearchParams(window.location.search);
         const sessionId = urlParams.get('id');
         const userEmail = urlParams.get('email');
         
+        // Se houver uma sessão ativa, mostra a seção de sincronização e preenche o e-mail
         if(sessionId) {
             document.getElementById('sync-section').classList.remove('hidden');
             if(document.getElementById('waiting-section')) {
@@ -159,8 +153,9 @@
             }
         }
 
+        // Função para copiar o comando oficial do Docker Hub
         function copyToClipboard(btn) {
-            const command = "docker run -it --rm -v $(pwd)/logs.txt:/app/network_logs.txt ghostarchitect/ghost-model";
+            const command = "docker run -it --rm -v $(pwd)/logs.txt:/app/network_logs.txt getghostarchitect/ghost-model";
             navigator.clipboard.writeText(command).then(() => {
                 const originalText = btn.innerText;
                 btn.innerText = "✓ COMMAND COPIED";
@@ -174,11 +169,16 @@
             });
         }
 
-        function triggerStripe() {
+        // Redirecionamento para o Stripe com e-mail preenchido
+        function triggerStripeAudit() {
             const email = document.getElementById('sync-email').value;
             if(email.includes('@')) {
-                const STRIPE_LINK = "https://buy.stripe.com/PAY_GHOST_MODEL_AUDIT"; 
-                const finalUrl = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email) + (sessionId ? "&client_reference_id=" + sessionId : "");
+                // Seu link oficial do Stripe Checkout
+                const STRIPE_LINK = "https://buy.stripe.com/5kQ6oId7Ha78f638TbaAw05"; 
+                
+                // Montagem da URL com o parâmetro de e-mail
+                const finalUrl = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email);
+                
                 window.location.href = finalUrl;
             } else {
                 alert("Please enter a professional email to sync your forensic data.");
