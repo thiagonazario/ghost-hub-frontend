@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | Ghost-Model (Shadow AI Audit)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #afafaf; font-family: 'Inter', sans-serif; }
+        .neon-text { color: #A855F7; text-shadow: 0 0 12px rgba(168, 85, 247, 0.4); }
+        .neon-border { border: 1px solid rgba(168, 85, 247, 0.1); }
+        .step-number { background: #111; border: 1px solid #333; }
+        code { color: #A855F7; background: rgba(168, 85, 247, 0.1); padding: 2px 6px; border-radius: 4px; }
+        .faq-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; }
+        .faq-card:hover { border-color: rgba(168, 85, 247, 0.2); background: rgba(255,255,255,0.05); }
+        .scan-line { animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <nav class="p-8 border-b border-white/5 flex justify-between items-center">
+        <a href="index.html" class="font-black text-xl text-white uppercase tracking-tighter">
+            GHOST<span class="text-[#A855F7]">ARCHITECT</span> <span class="text-gray-600">/ GHOST-MODEL</span>
+        </a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-20 w-full">
+        
+        <div class="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-4xl font-black text-white mb-6 uppercase tracking-tighter leading-none">
+                    Detect Shadow AI <br><span class="neon-text">Leaks in Minutes.</span>
+                </h1>
+                <p class="text-gray-400 leading-relaxed mb-8 text-sm italic">
+                    Ghost-Model audits your network telemetry to find unauthorized LLM usage, "Shadow" meeting recorders, and potential data exfiltration to untrusted AI providers.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">01</span>
+                        <p class="text-sm">Export your <strong>network telemetry</strong> (txt/log).</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">02</span>
+                        <p class="text-sm">Run the <strong>Ghost-Scanner</strong> via Docker.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">03</span>
+                        <p class="text-sm">Confirm email to <strong>Sync Forensic Results</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest text-center">Local Audit Command</h4>
+                
+                <div class="bg-black p-4 rounded-lg mb-6 border border-white/10 font-mono text-[11px] text-purple-400">
+                    <pre id="docker-cmd" class="whitespace-pre-wrap">docker run -it --rm \
+  -v $(pwd)/logs.txt:/app/network_logs.txt \
+  getghostarchitect/ghost-model</pre>
+                </div>
+
+                <p class="text-[9px] text-gray-600 mb-6 font-mono uppercase text-center tracking-widest leading-relaxed">
+                    Zero-Knowledge Audit // No Data Uploaded // Local Processing Only
+                </p>
+                
+                <button onclick="copyToClipboard(this)" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-purple-500 hover:text-white transition-all uppercase text-[10px] tracking-widest">
+                    Copy Launch Command
+                </button>
+            </div>
+        </div>
+
+        <div id="sync-section" class="neon-border p-12 rounded-3xl text-center bg-black/40 backdrop-blur-sm relative overflow-hidden group hidden">
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-all"></div>
+            
+            <h3 class="text-white font-black text-2xl uppercase tracking-tighter mb-4">Sovereignty Ticket Detected</h3>
+            <p id="id-display" class="text-[10px] text-purple-400 mb-2 font-mono uppercase tracking-widest scan-line">SESSION_ID: <span id="session-val"></span></p>
+            <p class="text-xs text-gray-500 mb-8 font-mono uppercase tracking-widest">Audit telemetry synced. Your forensic report is ready.</p>
+            
+            <div class="max-w-md mx-auto flex flex-col gap-4 relative z-10">
+                <input type="email" id="sync-email" placeholder="security-officer@company.com" class="bg-white/5 border border-white/10 p-5 rounded-xl text-white text-center outline-none focus:border-purple-500 transition-all font-mono">
+                
+                <button onclick="triggerStripe()" class="bg-purple-600 text-white font-black py-5 rounded-xl uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl shadow-purple-500/20">
+                    Unlock Full Forensic Audit ($390)
+                </button>
+
+                <div class="p-6 border border-white/5 bg-white/[0.02] rounded-xl mt-4">
+                    <h5 class="text-white font-bold uppercase text-[9px] mb-2 tracking-widest">Recommended Defense:</h5>
+                    <p class="text-[10px] text-gray-500 uppercase leading-relaxed mb-4">
+                        Activate <strong>Ghost-Monitor</strong> for continuous protection and block untrusted AI assets in real-time.
+                    </p>
+                    <button class="w-full border border-purple-500/30 text-purple-400 py-3 rounded-lg text-[9px] font-black uppercase tracking-widest hover:bg-purple-500/10 transition">
+                        Subscribe Monitoring ($79/mo)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="waiting-section" class="py-20 flex flex-col items-center justify-center border border-white/5 rounded-3xl bg-white/[0.01]">
+            <div class="relative mb-6">
+                <div class="absolute inset-0 rounded-full bg-purple-500/20 animate-ping"></div>
+                <div class="relative bg-black border border-purple-500/30 p-4 rounded-full text-purple-500">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+            </div>
+            <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.4em] mb-2">Ghost-Node: Awaiting Telemetry</h4>
+            <p class="text-[9px] text-gray-600 font-mono uppercase tracking-widest max-w-xs text-center leading-relaxed">
+                Run the Docker command above. Once the scan is complete, click the unique link generated in your terminal to sync results.
+            </p>
+        </div>
+
+        <section class="mt-32 border-t border-white/5 pt-20">
+            <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-12 flex items-center gap-3">
+                <span class="w-2 h-2 bg-purple-600 rounded-full"></span> Hardened AI Audit FAQ
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">How are leaks detected?</h4>
+                    <p class="text-gray-500 leading-relaxed">Ghost-Model uses a signature-based database of over 100+ known AI providers and meeting recorders. It calculates data exfiltration by analyzing payload size in your network logs.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Is it privacy-safe?</h4>
+                    <p class="text-gray-500 leading-relaxed">The scan happens locally. We do not receive your logs. We only receive an encrypted metadata file (.stnx) via secure webhook to generate your PDF report.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What about false positives?</h4>
+                    <p class="text-gray-500 leading-relaxed">Our forensic report categorizes tools by risk (Critical to Low). We prioritize domains with high sovereignty risk (like DeepSeek) or privacy risk (like Otter.ai).</p>
+                </div>
+                <div class="faq-card p-10 bg-purple-900/10 border-purple-500/20 rounded-xl">
+                    <h4 class="text-purple-400 font-bold mb-3 uppercase text-xs tracking-wider">Why the subscription?</h4>
+                    <p class="text-gray-400 leading-relaxed">Shadow AI is a moving target. New models appear daily. Our $79/mo monitor ensures your telemetry is audited weekly with updated signature databases.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="p-12 text-center border-t border-white/5 mt-auto">
+        <p class="text-[10px] text-gray-600 font-mono uppercase tracking-[0.2em]">Ghost Architect // AI Sovereignty Protocol // 2026</p>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('id');
+        const userEmail = urlParams.get('email');
+        
+        if(sessionId) {
+            document.getElementById('sync-section').classList.remove('hidden');
+            if(document.getElementById('waiting-section')) {
+                document.getElementById('waiting-section').classList.add('hidden');
+            }
+            document.getElementById('session-val').innerText = sessionId;
+            if(userEmail && userEmail !== "ANONYMOUS") {
+                const emailField = document.getElementById('sync-email');
+                emailField.value = decodeURIComponent(userEmail);
+                emailField.classList.add('border-purple-500/50');
+            }
+        }
+
+        function copyToClipboard(btn) {
+            const command = "docker run -it --rm -v $(pwd)/logs.txt:/app/network_logs.txt ghostarchitect/ghost-model";
+            navigator.clipboard.writeText(command).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "✓ COMMAND COPIED";
+                btn.style.backgroundColor = "#A855F7";
+                btn.style.color = "#fff";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = "#fff";
+                    btn.style.color = "#000";
+                }, 2000);
+            });
+        }
+
+        function triggerStripe() {
+            const email = document.getElementById('sync-email').value;
+            if(email.includes('@')) {
+                const STRIPE_LINK = "https://buy.stripe.com/PAY_GHOST_MODEL_AUDIT"; 
+                const finalUrl = STRIPE_LINK + "?prefilled_email=" + encodeURIComponent(email) + (sessionId ? "&client_reference_id=" + sessionId : "");
+                window.location.href = finalUrl;
+            } else {
+                alert("Please enter a professional email to sync your forensic data.");
+            }
+        }
+    </script>
+</body>
+</html>
