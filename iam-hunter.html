@@ -38,7 +38,7 @@
                     Audit your <br><span class="neon-text">Identity Perimeter</span>
                 </h1>
                 <p class="text-gray-400 leading-relaxed mb-8 text-sm">
-                    IAM Hunter performs a deep forensic scan of your Identity and Access Management. It detects over-privileged roles, missing MFA, and cross-account trust risks that compromise your SOC2 compliance.
+                    IAM Hunter performs a deep forensic scan of your Identity and Access Management. It maps Privilege Escalation paths and detects Public Trust risks that compromise your sovereignty. No credentials ever leave your local environment.
                 </p>
                 <div class="space-y-4">
                     <div class="flex items-start gap-4">
@@ -47,11 +47,11 @@
                     </div>
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">02</span>
-                        <p class="text-sm">Scan MFA integrity and Privilege Escalation paths.</p>
+                        <p class="text-sm">Replace the <code>***</code> with your <strong>Read-Only AWS Credentials</strong>. Ensure you have IAM:List and IAM:Get permissions.</p>
                     </div>
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">03</span>
-                        <p class="text-sm">Generate your <strong>Compliance Roadmap</strong>.</p>
+                        <p class="text-sm">Execute on your terminal and provide your email to <strong>Sync Results</strong>.</p>
                     </div>
                 </div>
             </div>
@@ -134,11 +134,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">How are my credentials handled?</h4>
-                    <p class="text-gray-500 leading-relaxed">IAM Hunter operates under <code>Hardened by Design</code> principles. Your AWS keys are used locally within the Docker runtime and never transmitted.</p>
+                    <p class="text-gray-500 leading-relaxed">IAM Hunter operates under <code>Hardened by Design</code> principles. Your AWS keys are used exclusively locally within the Docker runtime to initiate the <code>boto3</code> session. They are never transmitted, stored, or logged by Ghost Architect. The forensic manifest generated is fully encrypted via <strong>Fernet (cryptography)</strong> before any synchronization occurs.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What does the scan cover?</h4>
-                    <p class="text-gray-500 leading-relaxed">We audit MFA status, cross-account trust relationships, unused access keys, and complex privilege escalation paths.</p>
+                    <p class="text-gray-500 leading-relaxed">The engine performs a deep audit of your identity perimeter, focusing on <strong>MFA compliance, AdministratorAccess abuse, and Public Trust Exposure</strong> in Role Trust Policies. It maps how 'Wildcard' principals could allow unauthorized entities to assume control of your roles, identifying the exact Resource IDs involved.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">HOW IS THE "GLOBAL RISK EXPOSURE" CALCULATED?</h4>
+                    <p class="text-gray-500 leading-relaxed">Our logic assigns a financial weight to every vulnerability based on <strong>SOC2/ISO27001</strong> non-compliance costs and the market value of a compromised privileged identity. If your exposure exceeds <strong>$10,000 USD</strong>, the system triggers a 'Critical' alert, providing the exact data needed to justify immediate remediation.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">WHAT HAPPENS AFTER PAYMENT?</h4>
+                    <p class="text-gray-500 leading-relaxed">You will receive the IAM Forensic Roadmap via PDF. This document translates the encrypted <code>.stnx</code> file into a clear briefing, listing the exact Usernames and Roles that allow for an Account Takeover. You get the intelligence to see the invisible privilege escalation paths; your team then handles the revocation.</p>
                 </div>
             </div>
         </section>
