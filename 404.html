@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | 404 - Protocol Null</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #050505; color: #afafaf; font-family: 'Inter', sans-serif; overflow: hidden; }
+        .neon-text { color: #00FF41; text-shadow: 0 0 12px rgba(0, 255, 65, 0.4); }
+        .grid-bg { background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 30px 30px; }
+        
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+        .glitch-effect { animation: glitch 0.3s infinite ease-in-out; opacity: 0.8; }
+        .scan-line { animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    </style>
+</head>
+<body class="grid-bg min-h-screen flex items-center justify-center p-6">
+
+    <div class="max-w-xl w-full text-center">
+        <div class="mb-8 flex justify-center">
+            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="glitch-effect opacity-50">
+                <path d="M50 10C30 10 15 25 15 45V85L25 75L35 85L50 70L65 85L75 75L85 85V45C85 25 70 10 50 10Z" fill="white"/>
+                <circle cx="38" cy="45" r="5" fill="black"/>
+                <circle cx="62" cy="45" r="5" fill="black"/>
+            </svg>
+        </div>
+
+        <h1 class="text-9xl font-black text-white mb-4 tracking-tighter italic">404</h1>
+        <h2 class="text-sm font-mono uppercase tracking-[0.5em] text-[#00FF41] mb-8">
+            <span class="scan-line">●</span> ERROR: RESOURCE_NOT_LOCATED
+        </h2>
+
+        <div class="bg-white/5 border border-white/10 p-8 rounded-sm backdrop-blur-md mb-12">
+            <p class="text-gray-400 font-mono text-xs leading-relaxed uppercase tracking-widest">
+                The requested node or forensic asset does not exist within the current cloud perimeter. 
+                <br><br>
+                > Access: <span class="text-red-500 font-bold">DENIED</span><br>
+                > Protocol: <span class="text-white">NULL_PTR</span>
+            </p>
+        </div>
+
+        <a href="index.html" class="inline-block bg-white text-black font-black px-12 py-4 rounded-full hover:bg-[#00FF41] transition-all duration-300 uppercase text-[10px] tracking-[0.2em]">
+            Re-Initialize Protocol
+        </a>
+
+        <div class="mt-20 opacity-20 select-none">
+            <p class="text-[8px] font-mono tracking-[0.5em] text-gray-500">
+                GHOST ARCHITECT // SENSOR_NODE_404 // PORTO_ALEGRE
+            </p>
+        </div>
+    </div>
+
+    <div class="pointer-events-none fixed inset-0 z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]"></div>
+
+</body>
+</html>
