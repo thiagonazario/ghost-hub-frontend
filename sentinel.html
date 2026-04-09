@@ -33,7 +33,7 @@
                     Ready to scan your <br><span class="neon-text">Infrastructure?</span>
                 </h1>
                 <p class="text-gray-400 leading-relaxed mb-8 text-sm">
-                    Sentinel-X is a non-invasive forensic tool. It runs in a local container to identify "zombie" resources—assets draining your budget every hour.
+                    Sentinel-X is a non-invasive, read-only forensic tool. It runs locally in a container to identify zombie resources. No credentials or raw data ever leave your environment.
                 </p>
                 <div class="space-y-4">
                     <div class="flex items-start gap-4">
@@ -42,11 +42,11 @@
                     </div>
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">02</span>
-                        <p class="text-sm">Run it on your local terminal or Cloud Shell.</p>
+                        <p class="text-sm">Replace the *** with your <strong>Read-Only AWS Credentials</strong>. Never use Admin keys for third-party forensic scans.</p>
                     </div>
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">03</span>
-                        <p class="text-sm">Enter your email below to <strong>Sync Results</strong>.</p>
+                        <p class="text-sm">Execute on your terminal and provide your email to <strong>Sync Results</strong>.</p>
                     </div>
                 </div>
             </div>
@@ -124,19 +124,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Is my data safe?</h4>
-                    <p class="text-gray-500 leading-relaxed">Sentinel-X runs locally in your container. We only receive metadata about findings (waste amount and resource types) to generate your report. Your credentials never leave your machine.</p>
+                    <p class="text-gray-500 leading-relaxed">Absolutely. Sentinel-X operates under a Zero-Knowledge Architecture. The engine runs locally inside your container, and your AWS credentials never leave your memory space. We only receive an encrypted metadata manifest (resource counts and waste totals) required to generate your Forensic Report.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What access is required?</h4>
-                    <p class="text-gray-500 leading-relaxed">The tool only requires <code>ReadOnlyAccess</code>. It cannot perform write operations, delete resources, or modify your infrastructure in any way.</p>
+                    <p class="text-gray-500 leading-relaxed">The tool is strictly Read-Only. It specifically requires <code>ReadOnlyAccess</code> (or a limited policy for Cost Explorer and IAM). Sentinel-X has zero write permissions—it cannot delete, modify, or disrupt your infrastructure. It is a forensic observer, not an operator.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What happens after payment?</h4>
-                    <p class="text-gray-500 leading-relaxed">You will be redirected to a secure dashboard to download your PDF Forensic Report and a custom CLI script to automate the cleanup of all discovered waste.</p>
+                    <p class="text-gray-500 leading-relaxed">You will receive your Full Forensic PDF Report directly. This document identifies the exact Resource IDs and the specific financial leakage of every 'zombie' asset detected during the scan. You get a clear, actionable roadmap of exactly which resources to terminate to stop the budget drain immediately.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
                     <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Can I run this in Production?</h4>
-                    <p class="text-gray-500 leading-relaxed">Yes. Sentinel-X is built to be lightweight and non-intrusive. It uses official AWS APIs with zero impact on the performance or stability of your production environment.</p>
+                    <p class="text-gray-500 leading-relaxed">Yes. Sentinel-X is designed for high-uptime environments. It uses standard AWS API calls with a non-intrusive footprint, ensuring zero impact on your production performance or stability. It’s a surgical scan, not a load test.</p>
                 </div>
             </div>
         </section>
