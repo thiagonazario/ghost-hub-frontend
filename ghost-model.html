@@ -35,20 +35,20 @@
                     Detect Shadow AI <br><span class="neon-text">Leaks in Minutes.</span>
                 </h1>
                 <p class="text-gray-400 leading-relaxed mb-8 text-sm italic">
-                    Ghost-Model audits your network telemetry to find unauthorized LLM usage, "Shadow" meeting recorders, and potential data exfiltration to untrusted AI providers.
+                    Ghost-Model audits your network telemetry locally to identify unauthorized LLM usage and data exfiltration. <b>Map your log file to the container and reclaim your data sovereignty</b>.
                 </p>
                 <div class="space-y-4">
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">01</span>
-                        <p class="text-sm">Export your <strong>network telemetry</strong> (txt/log).</p>
+                        <p class="text-sm">EPlace your telemetry file (txt/log) in a folder and rename it to <code>logs.txt</code>.</p>
                     </div>
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">02</span>
-                        <p class="text-sm">Run the <strong>Ghost-Scanner</strong> via Docker.</p>
+                        <p class="text-sm">Open your terminal in that folder and Copy the Launch Command.</p>
                     </div>
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">03</span>
-                        <p class="text-sm">Confirm email to <strong>Sync Forensic Results</strong>.</p>
+                        <p class="text-sm">Run the Ghost-Scanner and confirm your email to <b>Sync Results</b>.</p>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 </div>
 
                 <p class="text-[9px] text-gray-600 mb-6 font-mono uppercase text-center tracking-widest leading-relaxed">
-                    Zero-Knowledge Audit // No Data Uploaded // Local Processing Only
+                    Note: Ensure you are in the <b>same directory</b> as your logs.txt before running.
                 </p>
                 
                 <button onclick="copyToClipboard(this)" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-purple-500 hover:text-white transition-all uppercase text-[10px] tracking-widest">
@@ -119,12 +119,20 @@
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                 <div class="faq-card p-6 rounded-xl">
-                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">How are leaks detected?</h4>
-                    <p class="text-gray-500 leading-relaxed">Ghost-Model uses a signature-based database of over 100+ known AI providers and meeting recorders. It calculates data exfiltration by analyzing payload size in your network logs.</p>
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">HHOW ARE MY LOGS HANDLED?</h4>
+                    <p class="text-gray-500 leading-relaxed">Ghost-Model operates under a <strong>Zero-Knowledge protocol</strong>. You provide the telemetry (network logs) via a local Docker volume. The engine parses the data locally to identify signatures of unauthorized AI domains. No raw log data is ever transmitted; only an encrypted manifest of detected AI assets is synchronized via <strong>AES-128 (Fernet)</strong>.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
-                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Is it privacy-safe?</h4>
-                    <p class="text-gray-500 leading-relaxed">The scan happens locally. We do not receive your logs. We only receive an encrypted metadata file (.stnx) via secure webhook to generate your PDF report.</p>
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">WHAT DOES THE SCAN DETECT?</h4>
+                    <p class="text-gray-500 leading-relaxed">The forensic engine matches network traffic against our proprietary Ghost-Database, which tracks over 40+ Shadow AI providers. We detect everything from <strong>General Purpose LLMs</strong> (ChatGPT, DeepSeek) to Coding Assistants (Cursor, Copilot) and <b>Meeting Recorders</b> (Otter.ai), categorizing them by their specific risk to your data sovereignty.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">HOW IS "DATA EXFILTRATION" CALCULATED?</h4>
+                    <p class="text-gray-500 leading-relaxed">Our engine parses outbound payload signatures (bytes/MB/GB) associated with each detected AI domain. We quantify exactly how much telemetry is being sent to untrusted providers, delivering a clear metric of your <b>Sovereign Risk Exposure in real-time</b>.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">WHAT HAPPENS AFTER PAYMENT?</h4>
+                    <p class="text-gray-500 leading-relaxed">You will receive the Shadow AI Forensic Audit via PDF. This document identifies the exact unauthorized AI tools in use and the volume of data leaked to each. You pay for the intelligence to identify the breach of sovereignty; your team then uses the report to implement the necessary DNS blocks or security policies.</p>
                 </div>
             </div>
         </section>
