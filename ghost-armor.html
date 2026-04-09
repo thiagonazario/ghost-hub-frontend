@@ -37,20 +37,20 @@
                     Shield your <br><span class="neon-text">Network Perimeter</span>
                 </h1>
                 <p class="text-gray-400 leading-relaxed mb-8 text-sm">
-                    Ghost Armor analyzes your Security Groups and Network ACLs using a Bayesian Risk Model. It identifies exposed ports and unencrypted traffic flows before they become an entry point.
+                    Ghost Armor performs a multi-region forensic scan of your Security Groups. It identifies exposed ingress points (0.0.0.0/0) and quantifies the financial risk of database and management ports open to the public web. <strong>Your credentials never leave your local session</strong>.
                 </p>
                 <div class="space-y-4">
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">01</span>
-                        <p class="text-sm">Map your <strong>Exposed Surface</strong>.</p>
+                        <p class="text-sm"><strong>Copy</strong>the Network Shield Command.</p>
                     </div>
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">02</span>
-                        <p class="text-sm">Detect port leaks and insecure protocols.</p>
+                        <p class="text-sm">Replace the <code>***</code> with your <strong>Read-Only AWS Credentials</strong>. Requires EC2 DescribeRegions and EC2:DescribeSecurityGroups.</p>
                     </div>
                     <div class="flex items-start gap-4">
                         <span class="step-number px-3 py-1 text-[10px] font-bold rounded text-white">03</span>
-                        <p class="text-sm">Apply <strong>Hardened Shields</strong>.</p>
+                        <p class="text-sm">Execute to initiate the <strong>Global Multi-Region Scan</strong> and sync results.</p>
                     </div>
                 </div>
             </div>
@@ -132,12 +132,20 @@
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                 <div class="faq-card p-6 rounded-xl">
-                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">What is a Bayesian Risk Model?</h4>
-                    <p class="text-gray-500 leading-relaxed">It calculates the likelihood of a lateral movement after a breach, prioritizing vulnerabilities that lead to critical data.</p>
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">HOW ARE MY CREDENTIALS HANDLED?</h4>
+                    <p class="text-gray-500 leading-relaxed">Ghost-Armor operates under <strong>Hardened by Design</strong> principles. Your AWS keys are used exclusively locally within the Docker container to scan Security Groups via <code>boto3</code>. No keys or raw infrastructure logs are ever stored or transmitted. All metadata is encrypted with <strong>AES-128 (Fernet)</strong> before synchronization.</p>
                 </div>
                 <div class="faq-card p-6 rounded-xl">
-                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">Does it perform active Port Scanning?</h4>
-                    <p class="text-gray-500 leading-relaxed">No. Ghost Armor analyzes metadata, ensuring zero impact on production performance.</p>
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">WHAT DOES THE SCAN COVER?</h4>
+                    <p class="text-gray-500 leading-relaxed">The engine performs a Global <strong>Multi-Region Audit</strong> of your Security Groups. It specifically targets high-risk ingress points like <strong>SSH (22), RDP (3389), and Database Ports (MySQL/MongoDB)</strong> exposed to the public internet (<code>0.0.0.0/0</code>). It maps every entry point that could lead to a Full Takeover or Data Leak.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">HOW IS THE "TOTAL BREACH RISK" CALCULATED?</h4>
+                    <p class="text-gray-500 leading-relaxed">Our Risk Intelligence engine assigns a financial value to each exposed port based on the potential cost of a data breach or ransomware attack. We apply a Regional Multiplier for high-target zones like <code>us-east-1</code> and <code>sa-east-1</code>, providing a realistic estimate of your infrastructure’s financial liability.</p>
+                </div>
+                <div class="faq-card p-6 rounded-xl">
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-wider">WHAT HAPPENS AFTER PAYMENT?</h4>
+                    <p class="text-gray-500 leading-relaxed">You will receive the Network Exposure Dossier via PDF. This document identifies the exact <strong>Security Group IDs and Resource Names</strong> currently leaking access. You pay for the intelligence to identify the breach points; your team then uses the provided IDs to close the gaps on your own schedule.</p>
                 </div>
             </div>
         </section>
