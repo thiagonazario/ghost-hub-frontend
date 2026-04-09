@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Architect | Ghost-Model Forensic Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; color: #111827; -webkit-print-color-adjust: exact; }
+        .ghost-accent { color: #A855F7; }
+        .bg-ghost { background-color: #050505 !important; }
+        .mono { font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace; }
+        .page-break { page-break-after: always; }
+        @media print {
+            body { background-color: white; padding: 0; }
+            .no-print { display: none; }
+            .shadow-2xl { box-shadow: none; }
+            .border { border-color: #eee !important; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-gray-200">
+        
+        <div class="page-break">
+            <div class="bg-[#050505] p-8 flex justify-between items-center text-white border-b-4 border-[#A855F7]">
+                <div>
+                    <h1 class="text-xs uppercase tracking-[0.4em] text-gray-400 font-bold mb-1">Confidential AI Sovereignty Audit</h1>
+                    <h2 class="text-2xl font-black uppercase tracking-tighter italic">Ghost<span class="ghost-accent">-Model</span></h2>
+                </div>
+                <div class="text-right">
+                    <p class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">Target: FinTech-Internal-Net // v1.5</p>
+                    <p class="text-[10px] text-gray-500 font-mono italic underline">STRICTLY CONFIDENTIAL</p>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                    <span class="w-4 h-1 bg-[#A855F7]"></span> 1. AI Exfiltration Analytics
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-purple-50 p-6 rounded-lg border border-purple-100">
+                        <p class="text-[10px] uppercase font-bold text-purple-600 mb-1 tracking-widest">Total Data Leak</p>
+                        <p class="text-4xl font-black text-purple-700">4,210.42 MB</p>
+                        <p class="text-[10px] text-purple-500 mt-1 uppercase font-bold italic underline">Unmonitored Outbound</p>
+                    </div>
+                    <div class="bg-[#050505] p-6 rounded-lg border border-gray-800">
+                        <p class="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-widest">Shadow AI Assets</p>
+                        <p class="text-4xl font-black ghost-accent">12 Nodes</p>
+                        <p class="text-[10px] text-gray-500 mt-1 uppercase font-bold tracking-widest italic">Unauthorized Tools</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-lg border border-red-100">
+                        <p class="text-[10px] uppercase font-bold text-red-600 mb-1 tracking-widest">Highest Risk Factor</p>
+                        <p class="text-4xl font-black text-red-700">CRITICAL</p>
+                        <p class="text-[10px] text-red-500 mt-1 uppercase font-bold font-mono italic underline">DeepSeek Discovery</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-sm border border-gray-100 mb-8">
+                    <h4 class="text-[10px] uppercase font-black text-gray-400 mb-6 tracking-[0.3em] text-center">Ghost-Model Signal Intelligence</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div><p class="text-2xl font-bold text-gray-800">1.2 GB</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">Untrusted LLMs</p></div>
+                        <div><p class="text-2xl font-bold text-gray-800">840 MB</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">Meeting Recorders</p></div>
+                        <div><p class="text-2xl font-bold text-gray-800">42</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">Coding Prompts</p></div>
+                        <div><p class="text-2xl font-bold text-gray-800">8</p><p class="text-[9px] uppercase text-gray-400 font-bold tracking-tighter">Voice Deepfakes</p></div>
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-[#A855F7] p-6 bg-purple-50/50">
+                    <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                        "Conclusion: Corporate sovereignty is being bypassed. Employees are exfiltrating proprietary code and PII-heavy meeting transcripts to <span class="text-red-600 font-bold">Untrusted AI Providers</span>. The architecture currently permits unauthenticated telemetry flows to 12 distinct Shadow AI domains."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break p-8 border-t border-gray-100">
+            <h3 class="text-lg font-bold mb-8 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                <span class="w-4 h-1 bg-red-500"></span> 2. Unauthorized AI Signatures
+            </h3>
+            
+            <div class="overflow-hidden rounded-lg border border-gray-200">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead class="bg-gray-100 uppercase font-black text-gray-500 text-[9px] tracking-widest">
+                        <tr>
+                            <th class="p-4 border-b">AI Domain</th>
+                            <th class="p-4 border-b">Category / Risk</th>
+                            <th class="p-4 border-b">Status</th>
+                            <th class="p-4 border-b text-right">Leakage (MB)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="mono divide-y divide-gray-100">
+                        <tr>
+                            <td class="p-4 font-bold text-red-600">deepseek.com</td>
+                            <td class="p-4 text-gray-500">Untrusted / Sovereign Risk</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase">CRITICAL</span></td>
+                            <td class="p-4 text-right font-bold">1,450.20</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-red-600">otter.ai</td>
+                            <td class="p-4 text-gray-500">Meeting Record / PII Leak</td>
+                            <td class="p-4"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase">CRITICAL</span></td>
+                            <td class="p-4 text-right font-bold">840.45</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-orange-600">openai.com</td>
+                            <td class="p-4 text-gray-500">General Purpose LLM</td>
+                            <td class="p-4"><span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase">HIGH</span></td>
+                            <td class="p-4 text-right font-bold">1,120.00</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-orange-600">elevenlabs.io</td>
+                            <td class="p-4 text-gray-500">Voice Synthesis Risk</td>
+                            <td class="p-4"><span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase">HIGH</span></td>
+                            <td class="p-4 text-right font-bold">310.20</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-gray-400">mistral.ai</td>
+                            <td class="p-4 text-gray-500">Open LLM</td>
+                            <td class="p-4"><span class="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase">MEDIUM</span></td>
+                            <td class="p-4 text-right font-bold">489.57</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 p-4 bg-purple-50 rounded-lg border-dashed border border-purple-200">
+                <p class="text-[10px] text-purple-700 font-mono italic">
+                    [!] ALERT: High-volume outbound bursts detected towards DeepSeek clusters. Possible corporate source code exfiltration in progress. Forensic ID: AI-LEAK-GA-99.
+                </p>
+            </div>
+        </div>
+
+        <div class="p-8 border-t border-gray-100">
+            <h3 class="text-lg font-bold mb-6 uppercase tracking-tight text-gray-800 flex items-center gap-2">
+                <span class="w-4 h-1 bg-[#050505]"></span> 3. Sovereign AI Remediation
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-gray-400 mb-4 tracking-widest">Phase 01: Immediate Containment</h5>
+                    <ul class="text-xs space-y-3 text-gray-600 font-mono">
+                        <li>[ ] Kill DNS resolution for DeepSeek/Character.ai</li>
+                        <li>[ ] Revoke browser permissions for Otter.ai bots</li>
+                        <li>[ ] Terminate unauthorized AI API Keys</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-gray-400 mb-4 tracking-widest">Phase 02: Structural Hardening</h5>
+                    <ul class="text-xs space-y-3 text-gray-600 font-mono">
+                        <li>[ ] Deploy Ghost-Proxy for PII Scrambling</li>
+                        <li>[ ] Enable Real-time Token Burn Monitoring</li>
+                        <li>[ ] Implement Domain-Specific LLM Guardrails</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-[#050505] p-10 rounded-lg text-center text-white border-b-8 border-[#A855F7]">
+                <p class="text-[10px] uppercase tracking-[0.4em] mb-4 text-gray-400 font-bold">Operation: AI Sovereignty Activation</p>
+                <h4 class="text-2xl font-black mb-6 italic uppercase tracking-tighter">RECLAIM YOUR INTELLIGENCE.</h4>
+                <button class="bg-white text-black font-black px-12 py-5 rounded-sm text-xs uppercase hover:bg-[#A855F7] transition-all transform hover:-translate-y-1">
+                    Download Full Tactical Audit
+                </button>
+                <p class="text-[9px] text-gray-600 mt-6 uppercase tracking-widest">Includes: DNS Blocklists // EDR Signatures // Private AI Gateway Blueprint</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-[10px] text-gray-400 mt-12 font-mono tracking-widest uppercase pb-10">
+        Ghost Architect // AI Intelligence Division // Scan ID: GA-2026-MODEL-99
+    </footer>
+
+</body>
+</html>
