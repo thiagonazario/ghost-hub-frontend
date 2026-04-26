@@ -98,7 +98,7 @@
                 Your Cloud is <span class="neon-text italic">Haunted.</span>
             </h1>
             <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Identify zombie resources and security leaks in <span class="text-white font-bold">60 minutes</span>. 
+                Identify zombie resources and security leaks in <span class="text-white font-bold">a few minutes</span>. 
                 Receive a surgical forensic report with exact IDs and remediation paths for <span class="text-[#00FF41] font-bold">AWS</span>.
             </p>
             <a href="#products" class="inline-block bg-white text-black font-black px-12 py-5 rounded-full hover:bg-[#00FF41] transition-all duration-300 uppercase text-[12px] tracking-widest shadow-2xl shadow-white/5">
@@ -174,20 +174,24 @@
                     </a>
                 </div>
 
-                <div class="p-10 border border-white/5 bg-black/40 rounded-sm opacity-40 grayscale flex flex-col justify-between relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-                    <div class="relative z-20">
-                        <div class="text-[10px] text-gray-500 mb-6 font-mono font-bold tracking-widest uppercase border-b border-white/10 pb-2 inline-block italic">Next Release</div>
-                        <h5 class="text-3xl font-black text-gray-600 mb-4 tracking-tighter uppercase">Ghost Mapper</h5>
-                        <p class="text-sm leading-relaxed mb-8 text-gray-700 font-medium italic">
-                            <strong class="text-white">Architectural Drift:</strong> Visual infrastructure graph mapping. Detect undocumented dependencies and hidden drifts in real-time.
-                        </p>
-                    </div>
-                    <div class="relative z-20 flex items-center justify-between">
-                        <span class="text-[9px] bg-white/5 px-3 py-1 text-gray-600 font-bold uppercase tracking-widest">Under Construction</span>
-                        <div class="text-[10px] font-black text-gray-800 uppercase tracking-widest">Classified v2.0</div>
-                    </div>
+                <div class="neon-border-blue p-10 bg-black group rounded-sm flex flex-col justify-between relative overflow-hidden transition-all duration-500 border border-blue-500/20 hover:border-blue-400 shadow-[inset_0_0_15px_rgba(59,130,246,0.05)]">
+                    <div class="absolute top-0 right-0 p-4">
+                        <span class="text-[8px] font-black text-white bg-blue-600 px-2 py-1 rounded tracking-widest uppercase animate-pulse">Porting in Progress</span>
                 </div>
+                <div>
+                    <div class="text-[10px] text-blue-400 mb-6 font-mono font-bold tracking-widest uppercase border-b border-blue-400/20 pb-2 inline-block">v0.8 Alpha</div>
+                    <h5 class="text-3xl font-black text-white mb-4 tracking-tighter uppercase font-mono">Sentinel-X <span class="text-blue-500">[Azure]</span></h5>
+                    <p class="text-sm leading-relaxed mb-8 text-gray-400 font-medium italic">
+                        <strong class="text-blue-400/80">Cross-Cloud Governance:</strong> Extending forensic cost auditing to Azure Resource Manager. Identification of orphaned Managed Disks and abandoned SQL Instances.
+                    </p>
+                </div>
+                <div class="flex items-center justify-between mt-auto">
+                    <span class="text-[9px] text-blue-300/40 font-bold uppercase tracking-widest">Early Access: Q2 2026</span>
+                    <a href="briefing.html" class="text-[10px] font-black text-gray-500 group-hover:text-blue-400 transition tracking-widest uppercase flex items-center">
+                        Request Alpha Access <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                    </a>
+                </div>
+            </div>
             </div>
             <div class="max-w-4xl mx-auto mb-32 border-l-4 border-purple-500/40 pl-8 py-4 bg-gradient-to-r from-purple-500/5 to-transparent">
                 <p class="text-xl md:text-2xl text-gray-300 italic font-medium leading-relaxed tracking-tight">
@@ -358,7 +362,9 @@
             "> telemetry_sync_active",
             "> hardening_ai_protocol",
             "> node_sync: porto_alegre",
-            "> audit_requested: new_york_node"
+            "> audit_requested: new_york_node",
+            "> azure_sentinel: mapping_resource_groups...",
+            "> cross_cloud_sync: initiated",
         ];
 
         let logIndex = 0;
